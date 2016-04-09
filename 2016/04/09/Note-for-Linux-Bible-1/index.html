@@ -29,7 +29,7 @@ Portable software
 Downloadable applications
 No settings hidden in code or registries
 Mat">
-<meta property="og:updated_time" content="2016-04-09T14:14:27.717Z">
+<meta property="og:updated_time" content="2016-04-09T14:21:04.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for Linux Bible (1)">
 <meta name="twitter:description" content="Note for Linux Bible (1)Features in Linux
@@ -152,7 +152,17 @@ Mat">
 <ol>
 <li>Use <code>pwd</code> to check where you are</li>
 <li>Use <code>echo $HOME</code> to know your home directory</li>
-<li>Use <code>cd</code> or <code>cd ~</code> to directly change directory to your home</li>
+<li><p>Use <code>cd</code> or <code>cd ~</code> to directly change directory to your home</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[root@localhost ~]# ls -la</span><br><span class="line">total 32</span><br><span class="line">dr-xr-x---.  2 root root 4096 Apr  9 09:51 .</span><br><span class="line">dr-xr-xr-x. 17 root root 4096 Apr  9 09:51 ..</span><br><span class="line">-rw-------.  1 root root 1146 Apr  9 09:51 anaconda-ks.cfg</span><br><span class="line">-rw-r--r--.  1 root root   18 Dec 28  2013 .bash_logout</span><br><span class="line">-rw-r--r--.  1 root root  176 Dec 28  2013 .bash_profile</span><br><span class="line">-rw-r--r--.  1 root root  176 Dec 28  2013 .bashrc</span><br><span class="line">-rw-r--r--.  1 root root  100 Dec 28  2013 .cshrc</span><br><span class="line">-rw-r--r--.  1 root root  129 Dec 28  2013 .tcshrc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>-a</strong> option to view all files including hidden files (dot files)</p>
+</li>
+<li><strong>-l</strong> option to see a long, detailed list of information on each file</li>
+<li>(.) means current directory </li>
+<li>(..) means parent directory <blockquote>
+<p>The number of characters shown for a directory (<strong>4096</strong> bytes in these examples) reflects the size of the file containing information about the directory. While this number can grow above 4096 bytes for a directory that contains a lot of files, this number doesn’t reflect the size of files contained in that directory.</p>
+</blockquote>
+</li>
 </ol>
   
 	</div>
