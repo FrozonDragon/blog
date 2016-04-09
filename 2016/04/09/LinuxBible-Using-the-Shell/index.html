@@ -23,7 +23,7 @@ a single option consists of a word, it is usually pre">
 Options typically consist of a single letter preceded by a dash; 
 several options can be combined after a single dash;
 a single option consists of a word, it is usually pre">
-<meta property="og:updated_time" content="2016-04-09T16:06:27.282Z">
+<meta property="og:updated_time" content="2016-04-09T16:13:24.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LinuxBible] - Using the Shell">
 <meta name="twitter:description" content="Components of shell command
@@ -57,7 +57,7 @@ a single option consists of a word, it is usually pre">
 				<h1 class="site-name"><a href="/blog/" title="Frozen Dragon">Frozen Dragon</a></h1>
 				<h2 class="blog-motto">Overwhelming by knowledge...</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -73,7 +73,7 @@ a single option consists of a word, it is usually pre">
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:frozondragon.github.io/blog">
 					</form>
 					
@@ -96,16 +96,16 @@ a single option consists of a word, it is usually pre">
 		<a href="/blog/about" title="Rongbin Lin" target="_blank" itemprop="author">Rongbin Lin</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-09T15:39:18.000Z" itemprop="datePublished"> 发表于 2016-04-09</time>
+    <time datetime="2016-04-09T15:39:18.000Z" itemprop="datePublished"> Published 2016-04-09</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Components-of-shell-command"><span class="toc-number">1.</span> <span class="toc-text">Components of shell command</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-1-List-Environment-Variables"><span class="toc-number">1.1.</span> <span class="toc-text">Practic 1: List Environment Variables</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Locating-Commands"><span class="toc-number">2.</span> <span class="toc-text">Locating Commands</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-2-Check-PATH-enviroment-variable"><span class="toc-number">2.1.</span> <span class="toc-text">Practic 2: Check PATH enviroment variable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-order-in-which-the-shell-checks-commands"><span class="toc-number">2.2.</span> <span class="toc-text">The order in which the shell checks commands</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-3-Find-out-alias"><span class="toc-number">2.3.</span> <span class="toc-text">Practic 3: Find out alias</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-4-CHeck-location-of-command"><span class="toc-number">2.4.</span> <span class="toc-text">Practic 4: CHeck location of command</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Components-of-shell-command"><span class="toc-number">1.</span> <span class="toc-text">Components of shell command</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-1-List-Environment-Variables"><span class="toc-number">1.1.</span> <span class="toc-text">Practic 1: List Environment Variables</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Locating-Commands"><span class="toc-number">2.</span> <span class="toc-text">Locating Commands</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-2-Check-PATH-enviroment-variable"><span class="toc-number">2.1.</span> <span class="toc-text">Practic 2: Check PATH enviroment variable</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-order-in-which-the-shell-checks-commands"><span class="toc-number">3.</span> <span class="toc-text">The order in which the shell checks commands</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-3-Find-out-alias"><span class="toc-number">3.1.</span> <span class="toc-text">Practic 3: Find out alias</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-4-CHeck-location-of-command"><span class="toc-number">3.2.</span> <span class="toc-text">Practic 4: CHeck location of command</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Command-Line-Editing"><span class="toc-number">4.</span> <span class="toc-text">Command-Line Editing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Keystrokes-for-Navigating-Command-Lines"><span class="toc-number">4.1.</span> <span class="toc-text">Keystrokes for Navigating Command Lines</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -127,7 +127,7 @@ a single option consists of a word, it is usually pre">
 <h3 id="Practic-1-List-Environment-Variables"><a href="#Practic-1-List-Environment-Variables" class="headerlink" title="Practic 1: List Environment Variables"></a>Practic 1: List Environment Variables</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# declare</span><br><span class="line">BASH=/bin/bash</span><br><span class="line">BASHOPTS=checkwinsize:cmdhist:expand_aliases:extquote:force_fignore:histappend:hostcomplete:interactive_comments:login_shell:progcomp:promptvars:sourcepath</span><br><span class="line">BASH_ALIASES=()</span><br><span class="line">BASH_ARGC=()</span><br><span class="line">BASH_ARGV=()</span><br><span class="line">BASH_CMDS=()</span><br><span class="line">BASH_LINENO=()</span><br><span class="line">BASH_SOURCE=()</span><br><span class="line">BASH_VERSINFO=([0]=&quot;4&quot; [1]=&quot;2&quot; [2]=&quot;46&quot; [3]=&quot;1&quot; [4]=&quot;release&quot; [5]=&quot;x86_64-redhat-linux-gnu&quot;)</span><br><span class="line">BASH_VERSION=&apos;4.2.46(1)-release&apos;</span><br><span class="line">:</span><br><span class="line">:</span><br></pre></td></tr></table></figure>
 <h2 id="Locating-Commands"><a href="#Locating-Commands" class="headerlink" title="Locating Commands"></a>Locating Commands</h2><p><strong>PATH</strong> environment variable is a path stores a list well-known directories that are checked sequentially by shell for the commands you enter.</p>
 <h3 id="Practic-2-Check-PATH-enviroment-variable"><a href="#Practic-2-Check-PATH-enviroment-variable" class="headerlink" title="Practic 2: Check PATH enviroment variable"></a>Practic 2: Check PATH enviroment variable</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# echo $PATH</span><br><span class="line">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin</span><br></pre></td></tr></table></figure>
-<h3 id="The-order-in-which-the-shell-checks-commands"><a href="#The-order-in-which-the-shell-checks-commands" class="headerlink" title="The order in which the shell checks commands"></a>The order in which the shell checks commands</h3><ol>
+<h2 id="The-order-in-which-the-shell-checks-commands"><a href="#The-order-in-which-the-shell-checks-commands" class="headerlink" title="The order in which the shell checks commands"></a>The order in which the shell checks commands</h2><ol>
 <li><strong>Aliases</strong> are Names set by the <code>alias</code> command that represent a particular command and a set of options.</li>
 <li><strong>Shell reserved word</strong></li>
 <li><strong>Function</strong> A set of commands that are executed together within the current shell.</li>
@@ -136,6 +136,44 @@ a single option consists of a word, it is usually pre">
 </ol>
 <h3 id="Practic-3-Find-out-alias"><a href="#Practic-3-Find-out-alias" class="headerlink" title="Practic 3: Find out alias"></a>Practic 3: Find out alias</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# alias</span><br><span class="line">alias cp=&apos;cp -i&apos;</span><br><span class="line">alias egrep=&apos;egrep --color=auto&apos;</span><br><span class="line">alias fgrep=&apos;fgrep --color=auto&apos;</span><br><span class="line">alias grep=&apos;grep --color=auto&apos;</span><br><span class="line">alias l.=&apos;ls -d .* --color=auto&apos;</span><br><span class="line">alias ll=&apos;ls -l --color=auto&apos;</span><br><span class="line">alias ls=&apos;ls --color=auto&apos;</span><br><span class="line">alias mv=&apos;mv -i&apos;</span><br><span class="line">alias rm=&apos;rm -i&apos;</span><br><span class="line">alias which=&apos;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&apos;</span><br></pre></td></tr></table></figure>
 <h3 id="Practic-4-CHeck-location-of-command"><a href="#Practic-4-CHeck-location-of-command" class="headerlink" title="Practic 4: CHeck location of command"></a>Practic 4: CHeck location of command</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# type pwd</span><br><span class="line">pwd is a shell builtin</span><br><span class="line">[root@localhost ~]# type mv</span><br><span class="line">mv is aliased to `mv -i&apos;</span><br><span class="line">[root@localhost ~]# type ip</span><br><span class="line">ip is /usr/sbin/ip</span><br></pre></td></tr></table></figure>
+<h2 id="Command-Line-Editing"><a href="#Command-Line-Editing" class="headerlink" title="Command-Line Editing"></a>Command-Line Editing</h2><h3 id="Keystrokes-for-Navigating-Command-Lines"><a href="#Keystrokes-for-Navigating-Command-Lines" class="headerlink" title="Keystrokes for Navigating Command Lines"></a>Keystrokes for Navigating Command Lines</h3><table>
+<thead>
+<tr>
+<th>Keystroke</th>
+<th style="text-align:center">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl+F</td>
+<td style="text-align:center">Go forward one character</td>
+</tr>
+<tr>
+<td>Ctrl+B</td>
+<td style="text-align:center">Go backward one character</td>
+</tr>
+<tr>
+<td>Alt+F</td>
+<td style="text-align:center">Go forward one word</td>
+</tr>
+<tr>
+<td>Alt+B</td>
+<td style="text-align:center">Go backward one word</td>
+</tr>
+<tr>
+<td>Ctrl+A</td>
+<td style="text-align:center">Go to the beginning of the current line</td>
+</tr>
+<tr>
+<td>Ctrl+E</td>
+<td style="text-align:center">Go to the end of the line</td>
+</tr>
+<tr>
+<td>Ctrl+L</td>
+<td style="text-align:center">Clear screen and leave line at the top of the screen</td>
+</tr>
+</tbody>
+</table>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -185,17 +223,17 @@ a single option consists of a word, it is usually pre">
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Components-of-shell-command"><span class="toc-number">1.</span> <span class="toc-text">Components of shell command</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-1-List-Environment-Variables"><span class="toc-number">1.1.</span> <span class="toc-text">Practic 1: List Environment Variables</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Locating-Commands"><span class="toc-number">2.</span> <span class="toc-text">Locating Commands</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-2-Check-PATH-enviroment-variable"><span class="toc-number">2.1.</span> <span class="toc-text">Practic 2: Check PATH enviroment variable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-order-in-which-the-shell-checks-commands"><span class="toc-number">2.2.</span> <span class="toc-text">The order in which the shell checks commands</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-3-Find-out-alias"><span class="toc-number">2.3.</span> <span class="toc-text">Practic 3: Find out alias</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-4-CHeck-location-of-command"><span class="toc-number">2.4.</span> <span class="toc-text">Practic 4: CHeck location of command</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Components-of-shell-command"><span class="toc-number">1.</span> <span class="toc-text">Components of shell command</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-1-List-Environment-Variables"><span class="toc-number">1.1.</span> <span class="toc-text">Practic 1: List Environment Variables</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Locating-Commands"><span class="toc-number">2.</span> <span class="toc-text">Locating Commands</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-2-Check-PATH-enviroment-variable"><span class="toc-number">2.1.</span> <span class="toc-text">Practic 2: Check PATH enviroment variable</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-order-in-which-the-shell-checks-commands"><span class="toc-number">3.</span> <span class="toc-text">The order in which the shell checks commands</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-3-Find-out-alias"><span class="toc-number">3.1.</span> <span class="toc-text">Practic 3: Find out alias</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-4-CHeck-location-of-command"><span class="toc-number">3.2.</span> <span class="toc-text">Practic 4: CHeck location of command</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Command-Line-Editing"><span class="toc-number">4.</span> <span class="toc-text">Command-Line Editing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Keystrokes-for-Navigating-Command-Lines"><span class="toc-number">4.1.</span> <span class="toc-text">Keystrokes for Navigating Command Lines</span></a></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
@@ -203,7 +241,7 @@ a single option consists of a word, it is usually pre">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
@@ -216,7 +254,7 @@ a single option consists of a word, it is usually pre">
 
   
 <div class="tagslist">
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
 			
@@ -232,7 +270,7 @@ a single option consists of a word, it is usually pre">
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -254,11 +292,11 @@ a single option consists of a word, it is usually pre">
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
@@ -475,7 +513,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/blog/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/blog/img/scrollup.png"/></a>
 	</div>
 	<script src="/blog/js/totop.js"></script>
 
