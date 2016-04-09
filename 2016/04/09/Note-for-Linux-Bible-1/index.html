@@ -27,7 +27,7 @@ Start/stop services without interrupting others
 Portable software
 Downloadable applications
 No settings hidden in code or reg">
-<meta property="og:updated_time" content="2016-04-09T14:40:55.177Z">
+<meta property="og:updated_time" content="2016-04-09T14:57:28.569Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Note for Linux Bible (1)">
 <meta name="twitter:description" content="Reading Note for Linux Bible: BasicFeatures in Linux
@@ -63,7 +63,7 @@ No settings hidden in code or reg">
 				<h1 class="site-name"><a href="/blog/" title="Frozen Dragon">Frozen Dragon</a></h1>
 				<h2 class="blog-motto">Overwhelming by knowledge...</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -102,14 +102,14 @@ No settings hidden in code or reg">
 		<a href="/blog/about" title="Rongbin Lin" target="_blank" itemprop="author">Rongbin Lin</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-09T09:32:50.000Z" itemprop="datePublished"> 发表于 2016-04-09</time>
+    <time datetime="2016-04-09T09:32:50.000Z" itemprop="datePublished"> 發表於 2016-04-09</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">文章目錄</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reading-Note-for-Linux-Bible-Basic"><span class="toc-number">1.</span> <span class="toc-text">Reading Note for Linux Bible: Basic</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Features-in-Linux"><span class="toc-number">1.1.</span> <span class="toc-text">Features in Linux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Starting-a-Shell"><span class="toc-number">1.2.</span> <span class="toc-text">Starting a Shell</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Other-common-shell"><span class="toc-number">1.2.1.</span> <span class="toc-text">Other common shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shell-Prompt"><span class="toc-number">1.2.2.</span> <span class="toc-text">Shell Prompt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-1-What-shell-is-using"><span class="toc-number">1.2.3.</span> <span class="toc-text">Practic 1: What shell is using?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-2-Change-shell"><span class="toc-number">1.2.4.</span> <span class="toc-text">Practic 2: Change shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-3-Checking-Your-Login-Session"><span class="toc-number">1.2.5.</span> <span class="toc-text">Practic 3: Checking Your Login Session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-3-Checking-Directories-and-Permissions"><span class="toc-number">1.2.6.</span> <span class="toc-text">Practic 3: Checking Directories and Permissions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Checking-System-Activity"><span class="toc-number">1.2.7.</span> <span class="toc-text">Checking System Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exiting-the-Shell"><span class="toc-number">1.2.8.</span> <span class="toc-text">Exiting the Shell</span></a></li></ol></li></ol></li></ol>
 		
@@ -149,21 +149,21 @@ No settings hidden in code or reg">
 <ol>
 <li>Use <code>pwd</code> to check where you are</li>
 <li>Use <code>echo $HOME</code> to know your home directory</li>
-<li><p>Use <code>cd</code> or <code>cd ~</code> to directly change directory to your home</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[root@localhost ~]# ls -la</span><br><span class="line">total 32</span><br><span class="line">dr-xr-x---.  2 root root 4096 Apr  9 09:51 .</span><br><span class="line">dr-xr-xr-x. 17 root root 4096 Apr  9 09:51 ..</span><br><span class="line">-rw-------.  1 root root 1146 Apr  9 09:51 anaconda-ks.cfg</span><br><span class="line">-rw-r--r--.  1 root root   18 Dec 28  2013 .bash_logout</span><br><span class="line">-rw-r--r--.  1 root root  176 Dec 28  2013 .bash_profile</span><br><span class="line">-rw-r--r--.  1 root root  176 Dec 28  2013 .bashrc</span><br><span class="line">-rw-r--r--.  1 root root  100 Dec 28  2013 .cshrc</span><br><span class="line">-rw-r--r--.  1 root root  129 Dec 28  2013 .tcshrc</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>-a</strong> option to view all files including hidden files (dot files)</p>
-</li>
+<li>Use <code>cd</code> or <code>cd ~</code> to directly change directory to your home</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ls -la</span><br><span class="line">total 32</span><br><span class="line">dr-xr-x---.  2 root root 4096 Apr  9 09:51 .</span><br><span class="line">dr-xr-xr-x. 17 root root 4096 Apr  9 09:51 ..</span><br><span class="line">-rw-------.  1 root root 1146 Apr  9 09:51 anaconda-ks.cfg</span><br><span class="line">-rw-r--r--.  1 root root   18 Dec 28  2013 .bash_logout</span><br><span class="line">-rw-r--r--.  1 root root  176 Dec 28  2013 .bash_profile</span><br><span class="line">-rw-r--r--.  1 root root  176 Dec 28  2013 .bashrc</span><br><span class="line">-rw-r--r--.  1 root root  100 Dec 28  2013 .cshrc</span><br><span class="line">-rw-r--r--.  1 root root  129 Dec 28  2013 .tcshrc</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>-a</strong> option to view all files including hidden files (dot files)</li>
 <li><strong>-l</strong> option to see a long, detailed list of information on each file</li>
 <li>(.) means current directory </li>
-<li><p>(..) means parent directory </p>
+<li>(..) means parent directory </li>
+</ol>
 <blockquote>
 <p>The number of characters shown for a directory (<strong>4096</strong> bytes in these examples) reflects the size of the file containing information about the directory. While this number can grow above 4096 bytes for a directory that contains a lot of files, this number doesn’t reflect the size of files contained in that directory.</p>
-<h3 id="Checking-System-Activity"><a href="#Checking-System-Activity" class="headerlink" title="Checking System Activity"></a>Checking System Activity</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ps au | less</span><br><span class="line">USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</span><br><span class="line">root      8753  0.0  0.1 115372  2012 tty1     Ss+  09:55   0:00 -bash</span><br><span class="line">root     10561  0.0  0.1 115376  2032 pts/0    Ss   10:06   0:00 -bash</span><br><span class="line">root     17868  0.0  0.1 139492  1620 pts/0    R+   11:29   0:00 ps au</span><br><span class="line">root     17869  0.0  0.0 110248   996 pts/0    S+   11:29   0:00 less</span><br><span class="line">(END)</span><br></pre></td></tr></table></figure>
 </blockquote>
-</li>
-<li><p><strong>-a</strong> option asks to show processes of all users who are associated with your current terminal</p>
-</li>
+<h3 id="Checking-System-Activity"><a href="#Checking-System-Activity" class="headerlink" title="Checking System Activity"></a>Checking System Activity</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ps au | less</span><br><span class="line">USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</span><br><span class="line">root      8753  0.0  0.1 115372  2012 tty1     Ss+  09:55   0:00 -bash</span><br><span class="line">root     10561  0.0  0.1 115376  2032 pts/0    Ss   10:06   0:00 -bash</span><br><span class="line">root     17868  0.0  0.1 139492  1620 pts/0    R+   11:29   0:00 ps au</span><br><span class="line">root     17869  0.0  0.0 110248   996 pts/0    S+   11:29   0:00 less</span><br><span class="line">(END)</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>-a</strong> option asks to show processes of all users who are associated with your current terminal</li>
 <li><strong>-u</strong> option asks that usernames be shown, as well as other information such as the time the process started and memory and CPU usage</li>
 <li><strong>STAT</strong> column represents the state of the process, with R indicating a currently running process and S representing a sleeping process.</li>
 <li><strong>VSZ</strong> (virtual set size) shows the size of the image process (in kilobytes)</li>
@@ -221,17 +221,17 @@ No settings hidden in code or reg">
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">文章目錄</strong>
  
  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reading-Note-for-Linux-Bible-Basic"><span class="toc-number">1.</span> <span class="toc-text">Reading Note for Linux Bible: Basic</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Features-in-Linux"><span class="toc-number">1.1.</span> <span class="toc-text">Features in Linux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Starting-a-Shell"><span class="toc-number">1.2.</span> <span class="toc-text">Starting a Shell</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Other-common-shell"><span class="toc-number">1.2.1.</span> <span class="toc-text">Other common shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shell-Prompt"><span class="toc-number">1.2.2.</span> <span class="toc-text">Shell Prompt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-1-What-shell-is-using"><span class="toc-number">1.2.3.</span> <span class="toc-text">Practic 1: What shell is using?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-2-Change-shell"><span class="toc-number">1.2.4.</span> <span class="toc-text">Practic 2: Change shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-3-Checking-Your-Login-Session"><span class="toc-number">1.2.5.</span> <span class="toc-text">Practic 3: Checking Your Login Session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Practic-3-Checking-Directories-and-Permissions"><span class="toc-number">1.2.6.</span> <span class="toc-text">Practic 3: Checking Directories and Permissions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Checking-System-Activity"><span class="toc-number">1.2.7.</span> <span class="toc-text">Checking System Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exiting-the-Shell"><span class="toc-number">1.2.8.</span> <span class="toc-text">Exiting the Shell</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 
   
@@ -239,7 +239,7 @@ No settings hidden in code or reg">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">分類</p>
 		<ul>
 		
 		  
@@ -252,7 +252,7 @@ No settings hidden in code or reg">
 
   
 <div class="tagslist">
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">標簽</p>
 		<ul class="clearfix">
 		
 			
@@ -268,7 +268,7 @@ No settings hidden in code or reg">
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">友情鏈接</p>
     <ul>
         
           <li>
@@ -290,7 +290,7 @@ No settings hidden in code or reg">
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
 </div>
 
   <div class="weiboshow">
@@ -511,7 +511,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/blog/img/scrollup.png"/></a>
+	<a title="返回頂部"><img src="/blog/img/scrollup.png"/></a>
 	</div>
 	<script src="/blog/js/totop.js"></script>
 
