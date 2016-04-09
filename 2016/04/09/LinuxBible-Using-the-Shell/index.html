@@ -23,7 +23,7 @@ a single option consists of a word, it is usually pre">
 Options typically consist of a single letter preceded by a dash; 
 several options can be combined after a single dash;
 a single option consists of a word, it is usually pre">
-<meta property="og:updated_time" content="2016-04-09T16:17:18.529Z">
+<meta property="og:updated_time" content="2016-04-09T16:18:03.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LinuxBible] - Using the Shell">
 <meta name="twitter:description" content="Components of shell command
@@ -136,7 +136,51 @@ a single option consists of a word, it is usually pre">
 </ol>
 <h3 id="Practic-3-Find-out-alias"><a href="#Practic-3-Find-out-alias" class="headerlink" title="Practic 3: Find out alias"></a>Practic 3: Find out alias</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# alias</span><br><span class="line">alias cp=&apos;cp -i&apos;</span><br><span class="line">alias egrep=&apos;egrep --color=auto&apos;</span><br><span class="line">alias fgrep=&apos;fgrep --color=auto&apos;</span><br><span class="line">alias grep=&apos;grep --color=auto&apos;</span><br><span class="line">alias l.=&apos;ls -d .* --color=auto&apos;</span><br><span class="line">alias ll=&apos;ls -l --color=auto&apos;</span><br><span class="line">alias ls=&apos;ls --color=auto&apos;</span><br><span class="line">alias mv=&apos;mv -i&apos;</span><br><span class="line">alias rm=&apos;rm -i&apos;</span><br><span class="line">alias which=&apos;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&apos;</span><br></pre></td></tr></table></figure>
 <h3 id="Practic-4-CHeck-location-of-command"><a href="#Practic-4-CHeck-location-of-command" class="headerlink" title="Practic 4: CHeck location of command"></a>Practic 4: CHeck location of command</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# type pwd</span><br><span class="line">pwd is a shell builtin</span><br><span class="line">[root@localhost ~]# type mv</span><br><span class="line">mv is aliased to `mv -i&apos;</span><br><span class="line">[root@localhost ~]# type ip</span><br><span class="line">ip is /usr/sbin/ip</span><br></pre></td></tr></table></figure>
-<h2 id="Command-Line-Editing"><a href="#Command-Line-Editing" class="headerlink" title="Command-Line Editing"></a>Command-Line Editing</h2><h3 id="Keystrokes-for-Navigating-Command-Lines"><a href="#Keystrokes-for-Navigating-Command-Lines" class="headerlink" title="Keystrokes for Navigating Command Lines"></a>Keystrokes for Navigating Command Lines</h3><p>|Navigating Command Lines|<br>| Keystroke        | Meaning           |<br>| ————-: |:————-|<br>|Ctrl+F |  Go forward one character|<br>|Ctrl+B |  Go backward one character     |<br>|Alt+F  |  Go forward one word     |<br>|Alt+B  |  Go backward one word     |<br>|Ctrl+A |  Go to the beginning of the current line     |<br>|Ctrl+E |  Go to the end of the line     |<br>|Ctrl+L |  Clear screen and leave line at the top of the screen     |  </p>
+<h2 id="Command-Line-Editing"><a href="#Command-Line-Editing" class="headerlink" title="Command-Line Editing"></a>Command-Line Editing</h2><h3 id="Keystrokes-for-Navigating-Command-Lines"><a href="#Keystrokes-for-Navigating-Command-Lines" class="headerlink" title="Keystrokes for Navigating Command Lines"></a>Keystrokes for Navigating Command Lines</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">Navigating Command Lines</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Keystroke</td>
+<td>Meaning</td>
+</tr>
+<tr>
+<td style="text-align:center">————-:</td>
+<td>:————-</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+F</td>
+<td>Go forward one character</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+B</td>
+<td>Go backward one character</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt+F</td>
+<td>Go forward one word</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt+B</td>
+<td>Go backward one word</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+A</td>
+<td>Go to the beginning of the current line</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+E</td>
+<td>Go to the end of the line</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+L</td>
+<td>Clear screen and leave line at the top of the screen</td>
+</tr>
+</tbody>
+</table>
   
 	</div>
 		<footer class="article-footer clearfix">
