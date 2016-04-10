@@ -47,7 +47,7 @@ Remarks
 every user
 log in
 path; location of your mailbox ; the size of y">
-<meta property="og:updated_time" content="2016-04-10T05:53:24.882Z">
+<meta property="og:updated_time" content="2016-04-10T06:16:22.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LinuxBible] - Shell Environment">
 <meta name="twitter:description" content="Reading Note for Linux Bible: Shell EnviromentBash Configuration Files
@@ -93,7 +93,7 @@ path; location of your mailbox ; the size of y">
 				<h1 class="site-name"><a href="/blog/" title="Frozen Dragon">Frozen Dragon</a></h1>
 				<h2 class="blog-motto">Overwhelming by knowledge...</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -132,16 +132,16 @@ path; location of your mailbox ; the size of y">
 		<a href="/blog/about" title="Rongbin Lin" target="_blank" itemprop="author">Rongbin Lin</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-10T05:36:05.000Z" itemprop="datePublished"> 發表於 2016-04-10</time>
+    <time datetime="2016-04-10T05:36:05.000Z" itemprop="datePublished"> 发表于 2016-04-10</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
+			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reading-Note-for-Linux-Bible-Shell-Enviroment"><span class="toc-number">1.</span> <span class="toc-text">Reading Note for Linux Bible: Shell Enviroment</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bash-Configuration-Files"><span class="toc-number">1.1.</span> <span class="toc-text">Bash Configuration Files</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reading-Note-for-Linux-Bible-Shell-Enviroment"><span class="toc-number">1.</span> <span class="toc-text">Reading Note for Linux Bible: Shell Enviroment</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bash-Configuration-Files"><span class="toc-number">1.1.</span> <span class="toc-text">Bash Configuration Files</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Practice-1-View-bash-configuration-files"><span class="toc-number">1.1.1.</span> <span class="toc-text">Practice 1: View bash configuration files</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
@@ -189,11 +189,10 @@ path; location of your mailbox ; the size of y">
 <td style="text-align:left">each user</td>
 <td style="text-align:left">Executes each time you log out</td>
 <td style="text-align:left">By default, it simply clears your screen.</td>
-<td></td>
 </tr>
 </tbody>
 </table>
-  
+<h3 id="Practice-1-View-bash-configuration-files"><a href="#Practice-1-View-bash-configuration-files" class="headerlink" title="Practice 1: View bash configuration files"></a>Practice 1: View bash configuration files</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# more /etc/profile</span><br><span class="line">:</span><br><span class="line">export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL</span><br><span class="line">:</span><br><span class="line">for i in /etc/profile.d/*.sh ; do</span><br><span class="line">    if [ -r &quot;$i&quot; ]; then</span><br><span class="line">        if [ &quot;$&#123;-#*i&#125;&quot; != &quot;$-&quot; ]; then</span><br><span class="line">            . &quot;$i&quot;</span><br><span class="line">        else</span><br><span class="line">            . &quot;$i&quot; &gt;/dev/null</span><br><span class="line">        fi</span><br><span class="line">    fi</span><br><span class="line">done</span><br><span class="line">:</span><br><span class="line">[root@localhost ~]# cd /etc/profile.d</span><br><span class="line">[root@localhost profile.d]# ll</span><br><span class="line">total 48</span><br><span class="line">-rw-r--r--. 1 root root  771 Nov 20 01:21 256term.csh</span><br><span class="line">-rw-r--r--. 1 root root  841 Nov 20 01:21 256term.sh</span><br><span class="line">-rw-r--r--. 1 root root  196 Apr 29  2015 colorgrep.csh</span><br><span class="line">-rw-r--r--. 1 root root  201 Apr 29  2015 colorgrep.sh</span><br><span class="line">-rw-r--r--. 1 root root 1741 Sep 12  2015 colorls.csh</span><br><span class="line">-rw-r--r--. 1 root root 1609 Sep 12  2015 colorls.sh</span><br><span class="line">-rw-r--r--. 1 root root 1706 Nov 20 01:21 lang.csh</span><br><span class="line">-rw-r--r--. 1 root root 2703 Nov 20 01:21 lang.sh</span><br><span class="line">-rw-r--r--. 1 root root  123 Jul 30  2015 less.csh</span><br><span class="line">-rw-r--r--. 1 root root  121 Jul 30  2015 less.sh</span><br><span class="line">-rw-r--r--. 1 root root  164 Jan 27  2014 which2.csh</span><br><span class="line">-rw-r--r--. 1 root root  169 Jan 27  2014 which2.sh</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# more ~/.bash_profile</span><br><span class="line"># .bash_profile</span><br><span class="line"></span><br><span class="line"># Get the aliases and functions</span><br><span class="line">if [ -f ~/.bashrc ]; then</span><br><span class="line">        . ~/.bashrc</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># User specific environment and startup programs</span><br><span class="line">PATH=$PATH:$HOME/bin</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# more ~/.bashrc</span><br><span class="line"># .bashrc</span><br><span class="line"></span><br><span class="line"># User specific aliases and functions</span><br><span class="line"></span><br><span class="line">alias rm=&apos;rm -i&apos;</span><br><span class="line">alias cp=&apos;cp -i&apos;</span><br><span class="line">alias mv=&apos;mv -i&apos;</span><br><span class="line"></span><br><span class="line"># Source global definitions</span><br><span class="line">if [ -f /etc/bashrc ]; then</span><br><span class="line">        . /etc/bashrc</span><br><span class="line">fi</span><br><span class="line">[root@localhost ~]# more ~/.bash_logout</span><br><span class="line"># ~/.bash_logout</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -242,17 +241,17 @@ path; location of your mailbox ; the size of y">
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
+  <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reading-Note-for-Linux-Bible-Shell-Enviroment"><span class="toc-number">1.</span> <span class="toc-text">Reading Note for Linux Bible: Shell Enviroment</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bash-Configuration-Files"><span class="toc-number">1.1.</span> <span class="toc-text">Bash Configuration Files</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reading-Note-for-Linux-Bible-Shell-Enviroment"><span class="toc-number">1.</span> <span class="toc-text">Reading Note for Linux Bible: Shell Enviroment</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bash-Configuration-Files"><span class="toc-number">1.1.</span> <span class="toc-text">Bash Configuration Files</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Practice-1-View-bash-configuration-files"><span class="toc-number">1.1.1.</span> <span class="toc-text">Practice 1: View bash configuration files</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
@@ -260,7 +259,7 @@ path; location of your mailbox ; the size of y">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分類</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -273,7 +272,7 @@ path; location of your mailbox ; the size of y">
 
   
 <div class="tagslist">
-	<p class="asidetitle">標簽</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -289,7 +288,7 @@ path; location of your mailbox ; the size of y">
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -311,7 +310,7 @@ path; location of your mailbox ; the size of y">
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
   <div class="weiboshow">
@@ -532,7 +531,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回頂部"><img src="/blog/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/blog/img/scrollup.png"/></a>
 	</div>
 	<script src="/blog/js/totop.js"></script>
 
