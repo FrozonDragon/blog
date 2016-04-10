@@ -4,38 +4,62 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Setup CentOS in VirtualBox | Frozen Dragon</title>
+    <title>[LinuxBible] - Shell Environment | Frozen Dragon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Rongbin Lin">
     
 
     
-    <meta name="description" content="Setup CentOS7 in VirtualBoxInstall VirtualBoxSomething tips…
-Change Default VM location
-Load DVD Image (.iso) file
-Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no network">
+    <meta name="description" content="Reading Note for Linux Bible: Shell EnviromentBash Configuration Files
+
+
+File
+Description
+
+
+
+
+
+
+
+
+|/etc/profile | + Sets up user environment information for every user.  + Executed when you first log">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Setup CentOS in VirtualBox">
-<meta property="og:url" content="http://frozondragon.github.io/blog/2016/04/09/Setup-CentOS-in-VirtualBox/index.html">
+<meta property="og:title" content="[LinuxBible] - Shell Environment">
+<meta property="og:url" content="http://frozondragon.github.io/blog/2016/04/10/LinuxBible-Shell-Environment/index.html">
 <meta property="og:site_name" content="Frozen Dragon">
-<meta property="og:description" content="Setup CentOS7 in VirtualBoxInstall VirtualBoxSomething tips…
-Change Default VM location
-Load DVD Image (.iso) file
-Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no network">
-<meta property="og:image" content="http://i1070.photobucket.com/albums/u485/binglong621/VB_Change_Dir_zpsz5ydp98g.gif">
-<meta property="og:image" content="http://i1070.photobucket.com/albums/u485/binglong621/VB_Load_ISO_zpsn31izare.gif">
-<meta property="og:image" content="http://i1070.photobucket.com/albums/u485/binglong621/VB_Setup_Port_Forward_zpsvhiezetj.gif">
-<meta property="og:image" content="http://i1070.photobucket.com/albums/u485/binglong621/port_forward_zpsw6dtlepa.png">
-<meta property="og:image" content="http://i1070.photobucket.com/albums/u485/binglong621/putty_setting_zpsiewsnnpx.png">
-<meta property="og:updated_time" content="2016-04-09T13:48:15.948Z">
+<meta property="og:description" content="Reading Note for Linux Bible: Shell EnviromentBash Configuration Files
+
+
+File
+Description
+
+
+
+
+
+
+
+
+|/etc/profile | + Sets up user environment information for every user.  + Executed when you first log">
+<meta property="og:updated_time" content="2016-04-10T05:40:31.847Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Setup CentOS in VirtualBox">
-<meta name="twitter:description" content="Setup CentOS7 in VirtualBoxInstall VirtualBoxSomething tips…
-Change Default VM location
-Load DVD Image (.iso) file
-Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no network">
-<meta name="twitter:image" content="http://i1070.photobucket.com/albums/u485/binglong621/VB_Change_Dir_zpsz5ydp98g.gif">
+<meta name="twitter:title" content="[LinuxBible] - Shell Environment">
+<meta name="twitter:description" content="Reading Note for Linux Bible: Shell EnviromentBash Configuration Files
+
+
+File
+Description
+
+
+
+
+
+
+
+
+|/etc/profile | + Sets up user environment information for every user.  + Executed when you first log">
 
     
     <link rel="alternative" href="/atom.xml" title="Frozen Dragon" type="application/atom+xml">
@@ -95,14 +119,14 @@ Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no ne
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/blog/2016/04/09/Setup-CentOS-in-VirtualBox/" title="Setup CentOS in VirtualBox" itemprop="url">Setup CentOS in VirtualBox</a>
+      <a href="/blog/2016/04/10/LinuxBible-Shell-Environment/" title="[LinuxBible] - Shell Environment" itemprop="url">[LinuxBible] - Shell Environment</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/blog/about" title="Rongbin Lin" target="_blank" itemprop="author">Rongbin Lin</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-08T16:46:56.000Z" itemprop="datePublished"> Published 2016-04-09</time>
+    <time datetime="2016-04-10T05:36:05.000Z" itemprop="datePublished"> Published 2016-04-10</time>
     
   </p>
 </header>
@@ -111,15 +135,24 @@ Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no ne
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Setup-CentOS7-in-VirtualBox"><span class="toc-number">1.</span> <span class="toc-text">Setup CentOS7 in VirtualBox</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-VirtualBox"><span class="toc-number">1.1.</span> <span class="toc-text">Install VirtualBox</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-Default-VM-location"><span class="toc-number">1.1.1.</span> <span class="toc-text">Change Default VM location</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Load-DVD-Image-iso-file"><span class="toc-number">1.1.2.</span> <span class="toc-text">Load DVD Image (.iso) file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Network"><span class="toc-number">1.1.3.</span> <span class="toc-text">Setup Network</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Putty"><span class="toc-number">1.1.4.</span> <span class="toc-text">Setup Putty</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reading-Note-for-Linux-Bible-Shell-Enviroment"><span class="toc-number">1.</span> <span class="toc-text">Reading Note for Linux Bible: Shell Enviroment</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bash-Configuration-Files"><span class="toc-number">1.1.</span> <span class="toc-text">Bash Configuration Files</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="Setup-CentOS7-in-VirtualBox"><a href="#Setup-CentOS7-in-VirtualBox" class="headerlink" title="Setup CentOS7 in VirtualBox"></a>Setup CentOS7 in VirtualBox</h1><h2 id="Install-VirtualBox"><a href="#Install-VirtualBox" class="headerlink" title="Install VirtualBox"></a>Install VirtualBox</h2><p>Something tips…</p>
-<h3 id="Change-Default-VM-location"><a href="#Change-Default-VM-location" class="headerlink" title="Change Default VM location"></a>Change Default VM location</h3><p><img src="http://i1070.photobucket.com/albums/u485/binglong621/VB_Change_Dir_zpsz5ydp98g.gif" alt="ChangeVMLocation"></p>
-<h3 id="Load-DVD-Image-iso-file"><a href="#Load-DVD-Image-iso-file" class="headerlink" title="Load DVD Image (.iso) file"></a>Load DVD Image (.iso) file</h3><p><img src="http://i1070.photobucket.com/albums/u485/binglong621/VB_Load_ISO_zpsn31izare.gif" alt="ChangeVMLocation"></p>
-<h3 id="Setup-Network"><a href="#Setup-Network" class="headerlink" title="Setup Network"></a>Setup Network</h3><p>By default, after install CentOS7 in VirtualBox, it will have no network.<br>vi the setting file and change <strong>ONBOOT</strong> to yes<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# nmcli d</span><br><span class="line">DEVICE  TYPE      STATE      CONNECTION</span><br><span class="line">enp0s3  ethernet  disconnected  enp0s3</span><br><span class="line">lo      loopback  unmanaged  --</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# cd /etc/sysconfig/network-scripts</span><br><span class="line">[root@localhost ~]# vi ifcfg-enp0s3</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">BOOTPROTO=dhcp</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">PEERDNS=yes</span><br><span class="line">PEERROUTES=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_PEERDNS=yes</span><br><span class="line">IPV6_PEERROUTES=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">NAME=enp0s3</span><br><span class="line">UUID=33b389eb-aa5d-4e32-ad19-66c72c73f0a4</span><br><span class="line">DEVICE=enp0s3</span><br><span class="line">ONBOOT=yes</span><br><span class="line"></span><br><span class="line">[root@localhost network-scripts]# service network restart</span><br><span class="line">Restarting network (via systemctl):                        [  OK  ]</span><br><span class="line">[root@localhost network-scripts]# ping 0.0.0.0</span><br><span class="line">PING 0.0.0.0 (127.0.0.1) 56(84) bytes of data.</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.037 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.046 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.048 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.046 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=5 ttl=64 time=0.051 ms</span><br><span class="line">^C</span><br><span class="line">--- 0.0.0.0 ping statistics ---</span><br><span class="line">5 packets transmitted, 5 received, 0% packet loss, time 3999ms</span><br></pre></td></tr></table></figure></p>
-<h3 id="Setup-Putty"><a href="#Setup-Putty" class="headerlink" title="Setup Putty"></a>Setup Putty</h3><p>The reason we need putty to connect to vitual linux hosted in Virtualbox is that we cannot copy and paste between host and client.<br><img src="http://i1070.photobucket.com/albums/u485/binglong621/VB_Setup_Port_Forward_zpsvhiezetj.gif" alt="PortForward"><br><img src="http://i1070.photobucket.com/albums/u485/binglong621/port_forward_zpsw6dtlepa.png" alt="PortForward_How"><br><img src="http://i1070.photobucket.com/albums/u485/binglong621/putty_setting_zpsiewsnnpx.png" alt="Setting of Putty"></p>
+		<h1 id="Reading-Note-for-Linux-Bible-Shell-Enviroment"><a href="#Reading-Note-for-Linux-Bible-Shell-Enviroment" class="headerlink" title="Reading Note for Linux Bible: Shell Enviroment"></a>Reading Note for Linux Bible: Shell Enviroment</h1><h2 id="Bash-Configuration-Files"><a href="#Bash-Configuration-Files" class="headerlink" title="Bash Configuration Files"></a>Bash Configuration Files</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">File</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p>|/etc/profile | + Sets up user environment information for <strong>every user</strong>.  + Executed when you first log in. + Provides values for your path, as well as setting environment variables for such things as the location of your mailbox and the size of your history files. + Gathers shell settings<br>from configuration files in the /etc/profile.d directory. |<br>|/etc/bashrc | Executes for every user who runs the bash shell, each time a bash shell is<br>opened. It sets the default prompt and may add one or more aliases. Values<br>in this file can be overridden by information in each user’s ~/.bashrc file.<br>|~/.bash_profile | Used by each user to enter information that is specific to his or her own use<br>of the shell. It is executed only once, when the user logs in. By default it sets<br>a few environment variables and executes the user’s .bashrc file.<br>|~/.bashrc | Contains the information that is specific to your bash shells. It is read when you<br>log in and also each time you open a new bash shell. This is the best location<br>to add environment variables and aliases so that your shell picks them up.<br>| ~/.bash_logout |  Executes each time you log out (exit the last bash shell). By default, it simply<br>clears your screen.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -131,13 +164,18 @@ Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no ne
 </div>
 
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/blog/tags/Linux/">Linux</a>
+  </div>
+
 </div>
 
 
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://frozondragon.github.io/blog/blog/2016/04/09/Setup-CentOS-in-VirtualBox/" data-title="Setup CentOS in VirtualBox | Frozen Dragon" data-tsina="null" class="share clearfix">
+	  <div data-url="http://frozondragon.github.io/blog/blog/2016/04/10/LinuxBible-Shell-Environment/" data-title="[LinuxBible] - Shell Environment | Frozen Dragon" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -150,19 +188,11 @@ Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no ne
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/blog/2016/04/09/LinuxBible-Basic/" title="[LinuxBible] - Basic">
-  <strong>上一篇：</strong><br/>
-  <span>
-  [LinuxBible] - Basic</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/blog/2016/04/07/hello-world/"  title="Hello World">
+<a href="/blog/2016/04/09/LinuxBible-Using-the-Shell/"  title="[LinuxBible] - Using the Shell">
  <strong>下一篇：</strong><br/> 
- <span>Hello World
+ <span>[LinuxBible] - Using the Shell
 </span>
 </a>
 </div>
@@ -177,7 +207,7 @@ Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no ne
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Setup-CentOS7-in-VirtualBox"><span class="toc-number">1.</span> <span class="toc-text">Setup CentOS7 in VirtualBox</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-VirtualBox"><span class="toc-number">1.1.</span> <span class="toc-text">Install VirtualBox</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-Default-VM-location"><span class="toc-number">1.1.1.</span> <span class="toc-text">Change Default VM location</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Load-DVD-Image-iso-file"><span class="toc-number">1.1.2.</span> <span class="toc-text">Load DVD Image (.iso) file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Network"><span class="toc-number">1.1.3.</span> <span class="toc-text">Setup Network</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Putty"><span class="toc-number">1.1.4.</span> <span class="toc-text">Setup Putty</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reading-Note-for-Linux-Bible-Shell-Enviroment"><span class="toc-number">1.</span> <span class="toc-text">Reading Note for Linux Bible: Shell Enviroment</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bash-Configuration-Files"><span class="toc-number">1.1.</span> <span class="toc-text">Bash Configuration Files</span></a></li></ol></li></ol>
  
   </div>
 
