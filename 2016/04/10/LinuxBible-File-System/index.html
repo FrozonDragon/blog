@@ -4,38 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Setup CentOS in VirtualBox | Frozen Dragon</title>
+    <title>[LinuxBible] - File System | Frozen Dragon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Rongbin Lin">
     
 
     
-    <meta name="description" content="Setup CentOS7 in VirtualBoxInstall VirtualBoxSomething tips…
-Change Default VM location
-Load DVD Image (.iso) file
-Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no network">
+    <meta name="description" content="Reading Note for Linux Bible: File SystemThe Linux file system is the structure in which all the information on your computer is stored.
+Common Directories
+/bin Contains common Linux user commands, su">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Setup CentOS in VirtualBox">
-<meta property="og:url" content="http://frozondragon.github.io/blog/2016/04/09/Setup-CentOS-in-VirtualBox/index.html">
+<meta property="og:title" content="[LinuxBible] - File System">
+<meta property="og:url" content="http://frozondragon.github.io/blog/2016/04/10/LinuxBible-File-System/index.html">
 <meta property="og:site_name" content="Frozen Dragon">
-<meta property="og:description" content="Setup CentOS7 in VirtualBoxInstall VirtualBoxSomething tips…
-Change Default VM location
-Load DVD Image (.iso) file
-Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no network">
-<meta property="og:image" content="http://i1070.photobucket.com/albums/u485/binglong621/VB_Change_Dir_zpsz5ydp98g.gif">
-<meta property="og:image" content="http://i1070.photobucket.com/albums/u485/binglong621/VB_Load_ISO_zpsn31izare.gif">
-<meta property="og:image" content="http://i1070.photobucket.com/albums/u485/binglong621/VB_Setup_Port_Forward_zpsvhiezetj.gif">
-<meta property="og:image" content="http://i1070.photobucket.com/albums/u485/binglong621/port_forward_zpsw6dtlepa.png">
-<meta property="og:image" content="http://i1070.photobucket.com/albums/u485/binglong621/putty_setting_zpsiewsnnpx.png">
-<meta property="og:updated_time" content="2016-04-09T13:48:15.948Z">
+<meta property="og:description" content="Reading Note for Linux Bible: File SystemThe Linux file system is the structure in which all the information on your computer is stored.
+Common Directories
+/bin Contains common Linux user commands, su">
+<meta property="og:updated_time" content="2016-04-10T10:05:57.998Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Setup CentOS in VirtualBox">
-<meta name="twitter:description" content="Setup CentOS7 in VirtualBoxInstall VirtualBoxSomething tips…
-Change Default VM location
-Load DVD Image (.iso) file
-Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no network">
-<meta name="twitter:image" content="http://i1070.photobucket.com/albums/u485/binglong621/VB_Change_Dir_zpsz5ydp98g.gif">
+<meta name="twitter:title" content="[LinuxBible] - File System">
+<meta name="twitter:description" content="Reading Note for Linux Bible: File SystemThe Linux file system is the structure in which all the information on your computer is stored.
+Common Directories
+/bin Contains common Linux user commands, su">
 
     
     <link rel="alternative" href="/atom.xml" title="Frozen Dragon" type="application/atom+xml">
@@ -95,14 +86,14 @@ Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no ne
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/blog/2016/04/09/Setup-CentOS-in-VirtualBox/" title="Setup CentOS in VirtualBox" itemprop="url">Setup CentOS in VirtualBox</a>
+      <a href="/blog/2016/04/10/LinuxBible-File-System/" title="[LinuxBible] - File System" itemprop="url">[LinuxBible] - File System</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/blog/about" title="Rongbin Lin" target="_blank" itemprop="author">Rongbin Lin</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-08T16:46:56.000Z" itemprop="datePublished"> 發表於 2016-04-09</time>
+    <time datetime="2016-04-10T09:49:15.000Z" itemprop="datePublished"> 發表於 2016-04-10</time>
     
   </p>
 </header>
@@ -111,15 +102,35 @@ Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no ne
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Setup-CentOS7-in-VirtualBox"><span class="toc-number">1.</span> <span class="toc-text">Setup CentOS7 in VirtualBox</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-VirtualBox"><span class="toc-number">1.1.</span> <span class="toc-text">Install VirtualBox</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-Default-VM-location"><span class="toc-number">1.1.1.</span> <span class="toc-text">Change Default VM location</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Load-DVD-Image-iso-file"><span class="toc-number">1.1.2.</span> <span class="toc-text">Load DVD Image (.iso) file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Network"><span class="toc-number">1.1.3.</span> <span class="toc-text">Setup Network</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Putty"><span class="toc-number">1.1.4.</span> <span class="toc-text">Setup Putty</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reading-Note-for-Linux-Bible-File-System"><span class="toc-number">1.</span> <span class="toc-text">Reading Note for Linux Bible: File System</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Common-Directories"><span class="toc-number">1.1.</span> <span class="toc-text">Common Directories</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="Setup-CentOS7-in-VirtualBox"><a href="#Setup-CentOS7-in-VirtualBox" class="headerlink" title="Setup CentOS7 in VirtualBox"></a>Setup CentOS7 in VirtualBox</h1><h2 id="Install-VirtualBox"><a href="#Install-VirtualBox" class="headerlink" title="Install VirtualBox"></a>Install VirtualBox</h2><p>Something tips…</p>
-<h3 id="Change-Default-VM-location"><a href="#Change-Default-VM-location" class="headerlink" title="Change Default VM location"></a>Change Default VM location</h3><p><img src="http://i1070.photobucket.com/albums/u485/binglong621/VB_Change_Dir_zpsz5ydp98g.gif" alt="ChangeVMLocation"></p>
-<h3 id="Load-DVD-Image-iso-file"><a href="#Load-DVD-Image-iso-file" class="headerlink" title="Load DVD Image (.iso) file"></a>Load DVD Image (.iso) file</h3><p><img src="http://i1070.photobucket.com/albums/u485/binglong621/VB_Load_ISO_zpsn31izare.gif" alt="ChangeVMLocation"></p>
-<h3 id="Setup-Network"><a href="#Setup-Network" class="headerlink" title="Setup Network"></a>Setup Network</h3><p>By default, after install CentOS7 in VirtualBox, it will have no network.<br>vi the setting file and change <strong>ONBOOT</strong> to yes<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# nmcli d</span><br><span class="line">DEVICE  TYPE      STATE      CONNECTION</span><br><span class="line">enp0s3  ethernet  disconnected  enp0s3</span><br><span class="line">lo      loopback  unmanaged  --</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# cd /etc/sysconfig/network-scripts</span><br><span class="line">[root@localhost ~]# vi ifcfg-enp0s3</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">BOOTPROTO=dhcp</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">PEERDNS=yes</span><br><span class="line">PEERROUTES=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_PEERDNS=yes</span><br><span class="line">IPV6_PEERROUTES=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">NAME=enp0s3</span><br><span class="line">UUID=33b389eb-aa5d-4e32-ad19-66c72c73f0a4</span><br><span class="line">DEVICE=enp0s3</span><br><span class="line">ONBOOT=yes</span><br><span class="line"></span><br><span class="line">[root@localhost network-scripts]# service network restart</span><br><span class="line">Restarting network (via systemctl):                        [  OK  ]</span><br><span class="line">[root@localhost network-scripts]# ping 0.0.0.0</span><br><span class="line">PING 0.0.0.0 (127.0.0.1) 56(84) bytes of data.</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.037 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.046 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.048 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.046 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=5 ttl=64 time=0.051 ms</span><br><span class="line">^C</span><br><span class="line">--- 0.0.0.0 ping statistics ---</span><br><span class="line">5 packets transmitted, 5 received, 0% packet loss, time 3999ms</span><br></pre></td></tr></table></figure></p>
-<h3 id="Setup-Putty"><a href="#Setup-Putty" class="headerlink" title="Setup Putty"></a>Setup Putty</h3><p>The reason we need putty to connect to vitual linux hosted in Virtualbox is that we cannot copy and paste between host and client.<br><img src="http://i1070.photobucket.com/albums/u485/binglong621/VB_Setup_Port_Forward_zpsvhiezetj.gif" alt="PortForward"><br><img src="http://i1070.photobucket.com/albums/u485/binglong621/port_forward_zpsw6dtlepa.png" alt="PortForward_How"><br><img src="http://i1070.photobucket.com/albums/u485/binglong621/putty_setting_zpsiewsnnpx.png" alt="Setting of Putty"></p>
+		<h1 id="Reading-Note-for-Linux-Bible-File-System"><a href="#Reading-Note-for-Linux-Bible-File-System" class="headerlink" title="Reading Note for Linux Bible: File System"></a>Reading Note for Linux Bible: File System</h1><p>The Linux file system is the structure in which all the information on your computer is stored.</p>
+<h2 id="Common-Directories"><a href="#Common-Directories" class="headerlink" title="Common Directories"></a>Common Directories</h2><ul>
+<li><strong>/bin</strong> Contains common Linux user commands, such as ls, sort, date, and chmod.</li>
+<li><strong>/boot</strong> Has the bootable Linux kernel and boot loader configuration files (GRUB).</li>
+<li><strong>/dev</strong> Contains files representing access points to devices on your systems. These include<ul>
+<li>terminal devices (tty*)</li>
+<li>floppy disks (fd*)</li>
+<li>hard disks (hd*)</li>
+<li>RAM (ram*)</li>
+<li>CD-ROM (cd*)</li>
+</ul>
+</li>
+<li><strong>/etc</strong> Contains administrative configuration files.</li>
+<li><strong>/home</strong> Contains directories assigned to each user with a login account.</li>
+<li><strong>/media</strong> Provides a standard location for mounting and automounting devices, such as remote file systems and removable media (with directory names of cdrecorder, floppy, and so on).</li>
+<li><strong>/mnt</strong> A common mount point for many devices before it was supplanted by the standard </li>
+<li><strong>/media</strong> directory. Some bootable Linux systems still used this directory to mount hard disk partitions and remote file systems.</li>
+<li><strong>/proc</strong> Contains information about system resources.</li>
+<li><strong>/root</strong> Represents the root user’s home directory.</li>
+<li><strong>/sbin</strong> Contains administrative commands and daemon processes.</li>
+<li><strong>/sys</strong> (A /proc-like file system, new in the Linux 2.6 kernel and intended to contain files for getting hardware status and reflecting the system’s device tree as it is seen by the kernel. It pulls many of its functions from /proc.</li>
+<li><strong>/tmp</strong> Contains temporary files used by applications.</li>
+<li><strong>/usr</strong> Contains user documentation, games, graphical files (X11), libraries (lib), and a<br>variety of other user and administrative commands and files.</li>
+<li><strong>/var</strong> Contains directories of data used by various applications. Files include:<br>-<strong>/var/ftp</strong>  an FTP server<br>-<strong>/var/www</strong> a Web server<br>-<strong>/var/log</strong> all system log files<br>-<strong>/var/spool</strong> spool files, such as mail, cups, and news.</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -131,13 +142,18 @@ Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no ne
 </div>
 
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/blog/tags/Linux/">Linux</a>
+  </div>
+
 </div>
 
 
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://frozondragon.github.io/blog/blog/2016/04/09/Setup-CentOS-in-VirtualBox/" data-title="Setup CentOS in VirtualBox | Frozen Dragon" data-tsina="null" class="share clearfix">
+	  <div data-url="http://frozondragon.github.io/blog/blog/2016/04/10/LinuxBible-File-System/" data-title="[LinuxBible] - File System | Frozen Dragon" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -150,19 +166,11 @@ Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no ne
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/blog/2016/04/09/LinuxBible-Basic/" title="[LinuxBible] - Basic">
-  <strong>上一篇：</strong><br/>
-  <span>
-  [LinuxBible] - Basic</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/blog/2016/04/07/hello-world/"  title="Hello World">
+<a href="/blog/2016/04/10/LinuxBible-Shell-Environment/"  title="[LinuxBible] - Shell Environment">
  <strong>下一篇：</strong><br/> 
- <span>Hello World
+ <span>[LinuxBible] - Shell Environment
 </span>
 </a>
 </div>
@@ -177,7 +185,7 @@ Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no ne
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Setup-CentOS7-in-VirtualBox"><span class="toc-number">1.</span> <span class="toc-text">Setup CentOS7 in VirtualBox</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-VirtualBox"><span class="toc-number">1.1.</span> <span class="toc-text">Install VirtualBox</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-Default-VM-location"><span class="toc-number">1.1.1.</span> <span class="toc-text">Change Default VM location</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Load-DVD-Image-iso-file"><span class="toc-number">1.1.2.</span> <span class="toc-text">Load DVD Image (.iso) file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Network"><span class="toc-number">1.1.3.</span> <span class="toc-text">Setup Network</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Putty"><span class="toc-number">1.1.4.</span> <span class="toc-text">Setup Putty</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reading-Note-for-Linux-Bible-File-System"><span class="toc-number">1.</span> <span class="toc-text">Reading Note for Linux Bible: File System</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Common-Directories"><span class="toc-number">1.1.</span> <span class="toc-text">Common Directories</span></a></li></ol></li></ol>
  
   </div>
 
