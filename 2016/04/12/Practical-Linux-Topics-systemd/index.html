@@ -1,0 +1,574 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>[Practical Linux Topics] systemd | Frozen Dragon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Rongbin Lin">
+    
+
+    
+    <meta name="description" content="[Practical Linux Topics] systemdWhat is systemd?For a long time, the services handler called init was responsible for the initialization of services after a reboot. However, it runs in a linear fashio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Practical Linux Topics] systemd">
+<meta property="og:url" content="http://frozondragon.github.io/blog/2016/04/12/Practical-Linux-Topics-systemd/index.html">
+<meta property="og:site_name" content="Frozen Dragon">
+<meta property="og:description" content="[Practical Linux Topics] systemdWhat is systemd?For a long time, the services handler called init was responsible for the initialization of services after a reboot. However, it runs in a linear fashio">
+<meta property="og:updated_time" content="2016-04-12T15:06:32.308Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Practical Linux Topics] systemd">
+<meta name="twitter:description" content="[Practical Linux Topics] systemdWhat is systemd?For a long time, the services handler called init was responsible for the initialization of services after a reboot. However, it runs in a linear fashio">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Frozen Dragon" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/blog/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/blog/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/blog/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/blog/"><img src="/blog/img/logo.svg" alt="Frozen Dragon" title="Frozen Dragon"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/blog/" title="Frozen Dragon">Frozen Dragon</a></h1>
+				<h2 class="blog-motto">Overwhelming by knowledge...</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/blog/">Home</a></li>
+					
+						<li><a href="/blog/archives">Archives</a></li>
+					
+						<li><a href="/blog/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:frozondragon.github.io/blog">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/blog/2016/04/12/Practical-Linux-Topics-systemd/" title="[Practical Linux Topics] systemd" itemprop="url">[Practical Linux Topics] systemd</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/blog/about" title="Rongbin Lin" target="_blank" itemprop="author">Rongbin Lin</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-12T15:05:46.000Z" itemprop="datePublished"> 发表于 2016-04-12</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Practical-Linux-Topics-systemd"><span class="toc-number">1.</span> <span class="toc-text">[Practical Linux Topics] systemd</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-systemd"><span class="toc-number">1.1.</span> <span class="toc-text">What is systemd?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Units-amp-Targets"><span class="toc-number">1.2.</span> <span class="toc-text">Units & Targets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#并发启动原理之一：解决-socket-依赖"><span class="toc-number">1.2.1.</span> <span class="toc-text">并发启动原理之一：解决 socket 依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#并发启动原理之二：解决-D-Bus-依赖"><span class="toc-number">1.2.2.</span> <span class="toc-text">并发启动原理之二：解决 D-Bus 依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#并发启动原理之三：解决文件系统依赖"><span class="toc-number">1.2.3.</span> <span class="toc-text">并发启动原理之三：解决文件系统依赖</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map-Run-Level-with-Systemd-Targets"><span class="toc-number">1.3.</span> <span class="toc-text">Map Run Level with Systemd Targets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-Check-current-runlevel"><span class="toc-number">1.3.1.</span> <span class="toc-text">Practice: Check current runlevel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-Check-current-runlevel-1"><span class="toc-number">1.3.2.</span> <span class="toc-text">Practice: Check current runlevel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-Check-status-of-service"><span class="toc-number">1.3.3.</span> <span class="toc-text">Practice: Check status of service</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Explore-the-Analysis-Tool"><span class="toc-number">1.4.</span> <span class="toc-text">Explore the Analysis Tool</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-Check-the-time-used-to-finish-startup"><span class="toc-number">1.4.1.</span> <span class="toc-text">Practice : Check the time used to finish startup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-List-ervices-that-are-slowing-down-your-power-up-times"><span class="toc-number">1.4.2.</span> <span class="toc-text">Practice : List ervices that are slowing down your power-up times</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Display-systemd-units-during-bootup"><span class="toc-number">1.4.3.</span> <span class="toc-text">Display systemd units during bootup</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Power-Options"><span class="toc-number">1.5.</span> <span class="toc-text">Power Options</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Checking-the-Logs"><span class="toc-number">1.6.</span> <span class="toc-text">Checking the Logs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-several-commands-to-check-last-bootup"><span class="toc-number">1.6.1.</span> <span class="toc-text">Practice: several commands to check last bootup</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="Practical-Linux-Topics-systemd"><a href="#Practical-Linux-Topics-systemd" class="headerlink" title="[Practical Linux Topics] systemd"></a>[Practical Linux Topics] systemd</h2><h3 id="What-is-systemd"><a href="#What-is-systemd" class="headerlink" title="What is systemd?"></a>What is systemd?</h3><p>For a long time, the services handler called <code>init</code> was responsible for the initialization of services after a reboot. However, it runs in a linear fashion, which is hardly efficient when <strong>parallelization</strong> is possible. The chosen replacement after some debate was <code>systemd</code>. </p>
+<p>==个人总结： systemd 就是启动管理器，用来启动系统或用户服务，主要特点是有并行启动程序的能力 ==</p>
+<h3 id="Units-amp-Targets"><a href="#Units-amp-Targets" class="headerlink" title="Units &amp; Targets"></a>Units &amp; Targets</h3><ul>
+<li><p><strong>Units</strong> are really just ==config files== of varying types that contain properties of a process that you want to manipulate.</p>
+</li>
+<li><p><strong>Targets</strong> refer to ==a group of processes ==that you want to launch at the same time. They replace old-school ++run levels++ and are just a bunch of symlinks that point at your unit files. </p>
+</li>
+</ul>
+<p>==个人总结： 如果把 systemd 的启动过程比作链子，targets就是一个mini链子，Units 就是其中的每一个环 ==</p>
+<p><a href="http://www.ibm.com/developerworks/cn/linux/1407_liuming_init3/index.html" target="_blank" rel="external">Nice Artical from IBM</a></p>
+<blockquote>
+<p>假设有 7 个不同的启动项目， 比如 JobA、Job B 等等。在 SysVInit 中，每一个启动项目都由一个独立的脚本负责，它们由 sysVinit 顺序地，串行地调用。因此总的启动时间为 T1+T2+T3+T4+T5+T6+T7。其中一些任务有依赖关系，比如 A,B,C,D。 而 Job E 和 F 却和 A,B,C,D 无关。这种情况下，UpStart 能够并发地运行任务{E，F，(A,B,C,D)}，使得总的启动时间减少为 T1+T2+T3。</p>
+<h4 id="并发启动原理之一：解决-socket-依赖"><a href="#并发启动原理之一：解决-socket-依赖" class="headerlink" title="并发启动原理之一：解决 socket 依赖"></a>并发启动原理之一：解决 socket 依赖</h4><p>Q: 比如服务 A 通过一个套接字端口 S1 提供自己的服务，其他的服务如果需要服务 A，则需要连接 S1。<br>A: 预先把 S1 建立好，那么其他所有的服务就可以同时启动而无需等待服务 A 来创建 S1 了。如果服务 A 尚未启动，那么其他进程向 S1 发送的服务请求实际上会被 Linux 操作系统缓存，其他进程会在这个请求的地方等待。一旦服务 A 启动就绪，就可以立即处理缓存的请求，一切都开始正常运行。</p>
+<h4 id="并发启动原理之二：解决-D-Bus-依赖"><a href="#并发启动原理之二：解决-D-Bus-依赖" class="headerlink" title="并发启动原理之二：解决 D-Bus 依赖"></a>并发启动原理之二：解决 D-Bus 依赖</h4><p>D-Bus 是 desktop-bus 的简称，是一个低延迟、低开销、高可用性的进程间通信机制。它越来越多地用于应用程序之间通信，也用于应用程序和操作系统内核之间的通信。D-Bus 支持所谓 <strong>bus activation</strong> 功能。如果服务 A 需要使用服务 B 的 D-Bus 服务，而服务 B 并没有运行，则 D-Bus 可以在服务 A 请求服务 B 的 D-Bus 时自动启动服务 B。而服务 A 发出的请求会被 D-Bus 缓存，服务 A 会等待服务 B 启动就绪。利用这个特性，依赖 D-Bus 的服务就可以实现并行启动。</p>
+<h4 id="并发启动原理之三：解决文件系统依赖"><a href="#并发启动原理之三：解决文件系统依赖" class="headerlink" title="并发启动原理之三：解决文件系统依赖"></a>并发启动原理之三：解决文件系统依赖</h4><p>Systemd 参考了 autofs 的设计思路，使得依赖文件系统的服务和文件系统本身初始化两者可以并发工作。autofs 可以监测到某个文件系统挂载点真正被访问到的时候才触发挂载操作，这是通过内核 automounter 模块的支持而实现的。比如一个 open()系统调用作用在”/misc/cd/file1”的时候，/misc/cd 尚未执行挂载操作，此时 open()调用被挂起等待，Linux 内核通知 autofs，autofs 执行挂载。这时候，控制权返回给 open()系统调用，并正常打开文件。</p>
+</blockquote>
+<p>==个人总结： 解决依赖的基本思路就是按需启动，前提是请求可以被缓存直到所要求资源准备就绪 ==</p>
+<hr>
+<h3 id="Map-Run-Level-with-Systemd-Targets"><a href="#Map-Run-Level-with-Systemd-Targets" class="headerlink" title="Map Run Level with Systemd Targets"></a>Map Run Level with Systemd Targets</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">Run Level</th>
+<th style="text-align:left">Systemd Targets</th>
+<th style="text-align:left">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:left">runlevel0.target, poweroff.target</td>
+<td style="text-align:left">Shut down and power off</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">runlevel1.target, rescue.target</td>
+<td style="text-align:left">Launch a rescue shell 单用户模式</td>
+</tr>
+<tr>
+<td style="text-align:center">2,4</td>
+<td style="text-align:left">runlevel2.target, multi-user.target</td>
+<td style="text-align:left">Launch a non-GUI, multi-user system 用户定义/域特定运行级别。默认等同于 3。</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">runlevel3.target, multi-user.target</td>
+<td style="text-align:left">Launch a non-GUI, multi-user system 多用户，非图形化。用户可以通过多个控制台或网络登录。</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">runlevel5.target, graphical.target</td>
+<td style="text-align:left">Launch a GUI, multi-user system</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">runlevel6.target, reboot.target</td>
+<td style="text-align:left">Shut down and reboot</td>
+</tr>
+<tr>
+<td style="text-align:center">emergency</td>
+<td style="text-align:left">emergency.target</td>
+<td style="text-align:left">紧急 Shell</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Practice-Check-current-runlevel"><a href="#Practice-Check-current-runlevel" class="headerlink" title="Practice: Check current runlevel"></a>Practice: Check current runlevel</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ls -l /usr/lib/systemd/system | grep runlevel</span><br><span class="line">lrwxrwxrwx. 1 root root   15 Apr  9 09:43 runlevel0.target -&gt; poweroff.target</span><br><span class="line">lrwxrwxrwx. 1 root root   13 Apr  9 09:43 runlevel1.target -&gt; rescue.target</span><br><span class="line">drwxr-xr-x. 2 root root   49 Apr  9 09:43 runlevel1.target.wants</span><br><span class="line">lrwxrwxrwx. 1 root root   17 Apr  9 09:43 runlevel2.target -&gt; multi-user.target</span><br><span class="line">drwxr-xr-x. 2 root root   49 Apr  9 09:43 runlevel2.target.wants</span><br><span class="line">lrwxrwxrwx. 1 root root   17 Apr  9 09:43 runlevel3.target -&gt; multi-user.target</span><br><span class="line">drwxr-xr-x. 2 root root   49 Apr  9 09:43 runlevel3.target.wants</span><br><span class="line">lrwxrwxrwx. 1 root root   17 Apr  9 09:43 runlevel4.target -&gt; multi-user.target</span><br><span class="line">drwxr-xr-x. 2 root root   49 Apr  9 09:43 runlevel4.target.wants</span><br><span class="line">lrwxrwxrwx. 1 root root   16 Apr  9 09:43 runlevel5.target -&gt; graphical.target</span><br><span class="line">drwxr-xr-x. 2 root root   49 Apr  9 09:43 runlevel5.target.wants</span><br><span class="line">lrwxrwxrwx. 1 root root   13 Apr  9 09:43 runlevel6.target -&gt; reboot.target</span><br><span class="line">-rw-r--r--. 1 root root  761 Nov 19 23:49 systemd-update-utmp-runlevel.service</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在/etc/systemd/system 目录下还可以看到诸如*.wants 的目录，放在该目录下的配置单元文件等同于在[Unit]小节中的 wants 关键字，即本单元启动时，还需要启动这些单元。比如您可以简单地把您自己写的 foo.service 文件放入 multi-user.target.wants 目录下，这样每次都会被默认启动了。</p>
+</blockquote>
+<h4 id="Practice-Check-current-runlevel-1"><a href="#Practice-Check-current-runlevel-1" class="headerlink" title="Practice: Check current runlevel"></a>Practice: Check current runlevel</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# runlevel</span><br><span class="line">N 3</span><br></pre></td></tr></table></figure>
+<h4 id="Practice-Check-status-of-service"><a href="#Practice-Check-status-of-service" class="headerlink" title="Practice: Check status of service"></a>Practice: Check status of service</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# systemctl status sshd</span><br><span class="line">● sshd.service - OpenSSH server daemon</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/sshd.service; enabled; vendor preset: enabled)</span><br><span class="line">   Active: active (running) since Mon 2016-04-11 02:24:05 EDT; 13min ago</span><br><span class="line">     Docs: man:sshd(8)</span><br><span class="line">           man:sshd_config(5)</span><br><span class="line"> Main PID: 1185 (sshd)</span><br><span class="line">   CGroup: /system.slice/sshd.service</span><br><span class="line">           └─1185 /usr/sbin/sshd -D</span><br><span class="line"></span><br><span class="line">Apr 11 02:24:05 localhost.localdomain systemd[1]: Started OpenSSH server daemon.</span><br><span class="line">Apr 11 02:24:05 localhost.localdomain systemd[1]: Starting OpenSSH server daemon...</span><br><span class="line">Apr 11 02:24:06 localhost.localdomain sshd[1185]: Server listening on 0.0.0.0 port 22.</span><br><span class="line">Apr 11 02:24:06 localhost.localdomain sshd[1185]: Server listening on :: port 22.</span><br><span class="line">Apr 11 02:24:59 localhost.localdomain sshd[2340]: Accepted password for root from 10.0.2.2 port 60957 ssh2</span><br></pre></td></tr></table></figure>
+<h3 id="Explore-the-Analysis-Tool"><a href="#Explore-the-Analysis-Tool" class="headerlink" title="Explore the Analysis Tool"></a>Explore the Analysis Tool</h3><h4 id="Practice-Check-the-time-used-to-finish-startup"><a href="#Practice-Check-the-time-used-to-finish-startup" class="headerlink" title="Practice : Check the time used to finish startup"></a>Practice : Check the time used to finish startup</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# systemd-analyze</span><br><span class="line">Startup finished in 460ms (kernel) + 3.007s (initrd) + 22.326s (userspace) = 25.795s</span><br></pre></td></tr></table></figure>
+<h4 id="Practice-List-ervices-that-are-slowing-down-your-power-up-times"><a href="#Practice-List-ervices-that-are-slowing-down-your-power-up-times" class="headerlink" title="Practice : List ervices that are slowing down your power-up times"></a>Practice : List ervices that are slowing down your power-up times</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# systemd-analyze blame</span><br><span class="line">          7.006s dev-mapper-centos\x2droot.device</span><br><span class="line">          5.699s NetworkManager-wait-online.service</span><br><span class="line">          4.283s firewalld.service</span><br><span class="line">          1.979s postfix.service</span><br><span class="line">          1.873s kdump.service</span><br><span class="line">          1.660s NetworkManager.service</span><br><span class="line">          1.427s lvm2-monitor.service</span><br><span class="line">          1.403s tuned.service</span><br><span class="line">          1.385s boot.mount</span><br><span class="line">          1.114s polkit.service</span><br><span class="line">          1.040s systemd-user-sessions.service</span><br><span class="line">          1.031s rsyslog.service</span><br><span class="line">           998ms rhel-dmesg.service</span><br><span class="line">           781ms rhel-readonly.service</span><br><span class="line">           751ms network.service</span><br><span class="line">           663ms systemd-journald.service</span><br><span class="line">           620ms systemd-tmpfiles-setup-dev.service</span><br><span class="line">           584ms systemd-udevd.service</span><br><span class="line">           549ms dev-hugepages.mount</span><br><span class="line">           547ms sys-kernel-debug.mount</span><br><span class="line">           532ms auditd.service</span><br><span class="line">           509ms systemd-remount-fs.service</span><br><span class="line">           508ms dev-mqueue.mount</span><br><span class="line">           436ms systemd-sysctl.service</span><br><span class="line">           410ms plymouth-start.service</span><br><span class="line">           398ms wpa_supplicant.service</span><br><span class="line">           388ms systemd-journal-flush.service</span><br><span class="line">           308ms systemd-tmpfiles-clean.service</span><br><span class="line">           292ms rhel-import-state.service</span><br><span class="line">           252ms kmod-static-nodes.service</span><br><span class="line">           234ms plymouth-read-write.service</span><br><span class="line">           205ms systemd-logind.service</span><br><span class="line">           140ms systemd-udev-trigger.service</span><br><span class="line">           135ms lvm2-pvscan@8:2.service</span><br><span class="line">           133ms systemd-vconsole-setup.service</span><br><span class="line">           108ms systemd-fsck-root.service</span><br><span class="line">            91ms plymouth-quit-wait.service</span><br><span class="line">            91ms plymouth-quit.service</span><br><span class="line">            80ms systemd-random-seed.service</span><br><span class="line">            77ms systemd-tmpfiles-setup.service</span><br><span class="line">            46ms dev-mapper-centos\x2dswap.swap</span><br><span class="line">            42ms systemd-update-utmp.service</span><br><span class="line">             9ms systemd-update-utmp-runlevel.service</span><br><span class="line">             8ms sys-kernel-config.mount</span><br></pre></td></tr></table></figure>
+<h4 id="Display-systemd-units-during-bootup"><a href="#Display-systemd-units-during-bootup" class="headerlink" title="Display systemd units during bootup"></a>Display systemd units during bootup</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# systemd-analyze critical-chain</span><br><span class="line">The time after the unit is active or started is printed after the &quot;@&quot; character.</span><br><span class="line">The time the unit takes to start is printed after the &quot;+&quot; character.</span><br><span class="line"></span><br><span class="line">multi-user.target @22.316s</span><br><span class="line">└─postfix.service @20.336s +1.979s</span><br><span class="line">  └─network.target @20.335s</span><br><span class="line">    └─network.service @19.580s +751ms</span><br><span class="line">      └─NetworkManager.service @12.214s +1.660s</span><br><span class="line">        └─firewalld.service @7.922s +4.283s</span><br><span class="line">          └─basic.target @7.877s</span><br><span class="line">            └─sockets.target @7.876s</span><br><span class="line">              └─dbus.socket @7.875s</span><br><span class="line">                └─sysinit.target @7.872s</span><br><span class="line">                  └─systemd-update-utmp.service @7.829s +42ms</span><br><span class="line">                    └─auditd.service @7.294s +532ms</span><br><span class="line">                      └─systemd-tmpfiles-setup.service @7.214s +77ms</span><br><span class="line">                        └─rhel-import-state.service @6.920s +292ms</span><br><span class="line">                          └─local-fs.target @6.918s</span><br><span class="line">                            └─boot.mount @5.531s +1.385s</span><br><span class="line">                              └─dev-disk-by\x2duuid-5bb47f81\x2d36db\x2d4b3f\x2d813b\x2d3ca2322e3092.device @5.530s</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# systemctl list-dependencies</span><br><span class="line">default.target</span><br><span class="line">● ├─auditd.service</span><br><span class="line">● ├─brandbot.path</span><br><span class="line">● ├─crond.service</span><br><span class="line">● ├─dbus.service</span><br><span class="line">● ├─irqbalance.service</span><br><span class="line">● ├─kdump.service</span><br><span class="line">● ├─network.service</span><br><span class="line">● ├─NetworkManager.service</span><br><span class="line">● ├─plymouth-quit-wait.service</span><br><span class="line">● ├─plymouth-quit.service</span><br><span class="line">● ├─postfix.service</span><br><span class="line">● ├─rsyslog.service</span><br><span class="line">● ├─sshd.service</span><br><span class="line">● ├─systemd-ask-password-wall.path</span><br><span class="line">● ├─systemd-logind.service</span><br><span class="line">● ├─systemd-readahead-collect.service</span><br><span class="line">● ├─systemd-readahead-replay.service</span><br><span class="line">● ├─systemd-update-utmp-runlevel.service</span><br><span class="line">● ├─systemd-user-sessions.service</span><br><span class="line">● ├─tuned.service</span><br><span class="line">● ├─basic.target</span><br><span class="line">● │ ├─firewalld.service</span><br><span class="line">● │ ├─microcode.service</span><br><span class="line">● │ ├─rhel-autorelabel-mark.service</span><br><span class="line">● │ ├─rhel-autorelabel.service</span><br><span class="line">● │ ├─rhel-configure.service</span><br><span class="line">● │ ├─rhel-dmesg.service</span><br><span class="line">● │ ├─rhel-loadmodules.service</span><br><span class="line">● │ ├─paths.target</span><br><span class="line">● │ ├─slices.target</span><br><span class="line">● │ │ ├─-.slice</span><br><span class="line">● │ │ └─system.slice</span><br><span class="line">● │ ├─sockets.target</span><br><span class="line">● │ │ ├─dbus.socket</span><br><span class="line">● │ │ ├─dm-event.socket</span><br><span class="line">● │ │ ├─systemd-initctl.socket</span><br><span class="line">● │ │ ├─systemd-journald.socket</span><br><span class="line">● │ │ ├─systemd-shutdownd.socket</span><br><span class="line">● │ │ ├─systemd-udevd-control.socket</span><br><span class="line">● │ │ └─systemd-udevd-kernel.socket</span><br><span class="line">● │ ├─sysinit.target</span><br><span class="line">● │ │ ├─dev-hugepages.mount</span><br><span class="line">● │ │ ├─dev-mqueue.mount</span><br><span class="line">● │ │ ├─kmod-static-nodes.service</span><br><span class="line">● │ │ ├─ldconfig.service</span><br><span class="line">● │ │ ├─lvm2-lvmetad.socket</span><br><span class="line">● │ │ ├─lvm2-lvmpolld.socket</span><br><span class="line">● │ │ ├─lvm2-monitor.service</span><br><span class="line">● │ │ ├─plymouth-read-write.service</span><br><span class="line">● │ │ ├─plymouth-start.service</span><br><span class="line">● │ │ ├─proc-sys-fs-binfmt_misc.automount</span><br><span class="line">● │ │ ├─sys-fs-fuse-connections.mount</span><br><span class="line">● │ │ ├─sys-kernel-config.mount</span><br><span class="line">● │ │ ├─sys-kernel-debug.mount</span><br><span class="line">● │ │ ├─systemd-ask-password-console.path</span><br><span class="line">● │ │ ├─systemd-binfmt.service</span><br><span class="line">● │ │ ├─systemd-firstboot.service</span><br><span class="line">● │ │ ├─systemd-hwdb-update.service</span><br><span class="line">● │ │ ├─systemd-journal-catalog-update.service</span><br><span class="line">● │ │ ├─systemd-journal-flush.service</span><br><span class="line">● │ │ ├─systemd-journald.service</span><br><span class="line">● │ │ ├─systemd-machine-id-commit.service</span><br><span class="line">● │ │ ├─systemd-modules-load.service</span><br><span class="line">● │ │ ├─systemd-random-seed.service</span><br><span class="line">● │ │ ├─systemd-sysctl.service</span><br><span class="line">● │ │ ├─systemd-tmpfiles-setup-dev.service</span><br><span class="line">● │ │ ├─systemd-tmpfiles-setup.service</span><br><span class="line">● │ │ ├─systemd-udev-trigger.service</span><br><span class="line">● │ │ ├─systemd-udevd.service</span><br><span class="line">● │ │ ├─systemd-update-done.service</span><br><span class="line">● │ │ ├─systemd-update-utmp.service</span><br><span class="line">● │ │ ├─systemd-vconsole-setup.service</span><br><span class="line">● │ │ ├─cryptsetup.target</span><br><span class="line">● │ │ ├─local-fs.target</span><br><span class="line">● │ │ │ ├─-.mount</span><br><span class="line">● │ │ │ ├─boot.mount</span><br><span class="line">● │ │ │ ├─rhel-import-state.service</span><br><span class="line">● │ │ │ ├─rhel-readonly.service</span><br><span class="line">● │ │ │ └─systemd-remount-fs.service</span><br><span class="line">● │ │ └─swap.target</span><br><span class="line">● │ │   └─dev-mapper-centos\x2dswap.swap</span><br><span class="line">● │ └─timers.target</span><br><span class="line">● │   └─systemd-tmpfiles-clean.timer</span><br><span class="line">● ├─getty.target</span><br><span class="line">● │ └─getty@tty1.service</span><br><span class="line">● └─remote-fs.target</span><br></pre></td></tr></table></figure>
+<h3 id="Power-Options"><a href="#Power-Options" class="headerlink" title="Power Options"></a>Power Options</h3><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Script</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>poweroff</td>
+<td><code>systemctl poweroff</code></td>
+</tr>
+<tr>
+<td>reboot</td>
+<td><code>systemctl reboot</code></td>
+</tr>
+<tr>
+<td>suspend</td>
+<td><code>systemctl suspend</code></td>
+</tr>
+<tr>
+<td>hibernate</td>
+<td><code>systemctl hibernate</code></td>
+</tr>
+<tr>
+<td>hibernate &amp; suspend</td>
+<td><code>systemctl hybrid-sleep</code></td>
+</tr>
+</tbody>
+</table>
+<p># </p>
+<h3 id="Checking-the-Logs"><a href="#Checking-the-Logs" class="headerlink" title="Checking the Logs"></a>Checking the Logs</h3><p>Use <strong>journald</strong> to check the systemd logs.</p>
+<h4 id="Practice-several-commands-to-check-last-bootup"><a href="#Practice-several-commands-to-check-last-bootup" class="headerlink" title="Practice: several commands to check last bootup"></a>Practice: several commands to check last bootup</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# last</span><br><span class="line">root     pts/0        10.0.2.2         Mon Apr 11 02:24   still logged in</span><br><span class="line">root     tty1                          Mon Apr 11 02:24   still logged in</span><br><span class="line">reboot   system boot  3.10.0-327.el7.x Mon Apr 11 02:23 - 04:01  (01:37)</span><br><span class="line">root     pts/0        10.0.2.2         Sun Apr 10 03:37 - crash  (22:46)</span><br><span class="line">root     pts/0        10.0.2.2         Sun Apr 10 02:22 - 03:36  (01:14)</span><br><span class="line">root     pts/0        10.0.2.2         Sun Apr 10 00:52 - 02:21  (01:29)</span><br><span class="line">root     pts/0        10.0.2.2         Sun Apr 10 00:48 - 00:50  (00:01)</span><br><span class="line">root     tty1                          Sun Apr 10 00:46 - crash (1+01:37)</span><br><span class="line">reboot   system boot  3.10.0-327.el7.x Sun Apr 10 00:46 - 04:01 (1+03:14)</span><br><span class="line">root     pts/0        10.0.2.2         Sat Apr  9 10:06 - crash  (14:39)</span><br><span class="line">root     tty1                          Sat Apr  9 09:55 - crash  (14:51)</span><br><span class="line">reboot   system boot  3.10.0-327.el7.x Sat Apr  9 09:54 - 04:01 (1+18:06)</span><br><span class="line"></span><br><span class="line">wtmp begins Sat Apr  9 09:54:23 2016</span><br><span class="line">[root@localhost ~]# journalctl --list-boots</span><br><span class="line"> 0 c7856a1082de41228a3c3f77887ec264 Mon 2016-04-11 02:23:42 EDT—Mon 2016-04-11 04:01:01 EDT</span><br><span class="line">[root@localhost ~]# who -b</span><br><span class="line">         system boot  2016-04-11 02:23</span><br></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/blog/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/blog/tags/Linux/">Linux</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://frozondragon.github.io/blog/blog/2016/04/12/Practical-Linux-Topics-systemd/" data-title="[Practical Linux Topics] systemd | Frozen Dragon" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/blog/2016/04/12/IELTS-Writing-Vocabulary/"  title="IELTS - Writing Vocabulary">
+ <strong>下一篇：</strong><br/> 
+ <span>IELTS - Writing Vocabulary
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Practical-Linux-Topics-systemd"><span class="toc-number">1.</span> <span class="toc-text">[Practical Linux Topics] systemd</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-systemd"><span class="toc-number">1.1.</span> <span class="toc-text">What is systemd?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Units-amp-Targets"><span class="toc-number">1.2.</span> <span class="toc-text">Units & Targets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#并发启动原理之一：解决-socket-依赖"><span class="toc-number">1.2.1.</span> <span class="toc-text">并发启动原理之一：解决 socket 依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#并发启动原理之二：解决-D-Bus-依赖"><span class="toc-number">1.2.2.</span> <span class="toc-text">并发启动原理之二：解决 D-Bus 依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#并发启动原理之三：解决文件系统依赖"><span class="toc-number">1.2.3.</span> <span class="toc-text">并发启动原理之三：解决文件系统依赖</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map-Run-Level-with-Systemd-Targets"><span class="toc-number">1.3.</span> <span class="toc-text">Map Run Level with Systemd Targets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-Check-current-runlevel"><span class="toc-number">1.3.1.</span> <span class="toc-text">Practice: Check current runlevel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-Check-current-runlevel-1"><span class="toc-number">1.3.2.</span> <span class="toc-text">Practice: Check current runlevel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-Check-status-of-service"><span class="toc-number">1.3.3.</span> <span class="toc-text">Practice: Check status of service</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Explore-the-Analysis-Tool"><span class="toc-number">1.4.</span> <span class="toc-text">Explore the Analysis Tool</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-Check-the-time-used-to-finish-startup"><span class="toc-number">1.4.1.</span> <span class="toc-text">Practice : Check the time used to finish startup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-List-ervices-that-are-slowing-down-your-power-up-times"><span class="toc-number">1.4.2.</span> <span class="toc-text">Practice : List ervices that are slowing down your power-up times</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Display-systemd-units-during-bootup"><span class="toc-number">1.4.3.</span> <span class="toc-text">Display systemd units during bootup</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Power-Options"><span class="toc-number">1.5.</span> <span class="toc-text">Power Options</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Checking-the-Logs"><span class="toc-number">1.6.</span> <span class="toc-text">Checking the Logs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-several-commands-to-check-last-bootup"><span class="toc-number">1.6.1.</span> <span class="toc-text">Practice: several commands to check last bootup</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/blog/categories/IELTS/" title="IELTS">IELTS<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/blog/categories/Linux/" title="Linux">Linux<sup>6</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/blog/tags/Linux/" title="Linux">Linux<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/blog/tags/IELTS/" title="IELTS">IELTS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/blog/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/blog/about" target="_blank" title="Rongbin Lin">Rongbin Lin</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/blog/js/jquery-2.0.3.min.js"></script>
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/blog/img/scrollup.png"/></a>
+	</div>
+	<script src="/blog/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
