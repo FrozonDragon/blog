@@ -1,0 +1,564 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>[The Clean Coder] - Chapter 04 | Frozen Dragon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Rongbin Lin">
+    
+
+    
+    <meta name="description" content="Coding
+Coding is an intellectually challenging and exhausting activity.
+
+Preparedness
+First, your code must work.
+Your code must solve the problem set for you by the customer. 
+Often the customer’s re">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[The Clean Coder] - Chapter 04">
+<meta property="og:url" content="http://frozondragon.github.io/blog/2016/04/15/The-Clean-Coder-Chapter-04/index.html">
+<meta property="og:site_name" content="Frozen Dragon">
+<meta property="og:description" content="Coding
+Coding is an intellectually challenging and exhausting activity.
+
+Preparedness
+First, your code must work.
+Your code must solve the problem set for you by the customer. 
+Often the customer’s re">
+<meta property="og:updated_time" content="2016-04-15T06:18:06.855Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[The Clean Coder] - Chapter 04">
+<meta name="twitter:description" content="Coding
+Coding is an intellectually challenging and exhausting activity.
+
+Preparedness
+First, your code must work.
+Your code must solve the problem set for you by the customer. 
+Often the customer’s re">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Frozen Dragon" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/blog/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/blog/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/blog/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/blog/"><img src="/blog/img/logo.svg" alt="Frozen Dragon" title="Frozen Dragon"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/blog/" title="Frozen Dragon">Frozen Dragon</a></h1>
+				<h2 class="blog-motto">Overwhelming by knowledge...</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/blog/">Home</a></li>
+					
+						<li><a href="/blog/archives">Archives</a></li>
+					
+						<li><a href="/blog/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:frozondragon.github.io/blog">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/blog/2016/04/15/The-Clean-Coder-Chapter-04/" title="[The Clean Coder] - Chapter 04" itemprop="url">[The Clean Coder] - Chapter 04</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/blog/about" title="Rongbin Lin" target="_blank" itemprop="author">Rongbin Lin</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-15T01:09:12.000Z" itemprop="datePublished"> Published 2016-04-15</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Coding"><span class="toc-number">1.</span> <span class="toc-text">Coding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Preparedness"><span class="toc-number">1.1.</span> <span class="toc-text">Preparedness</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-AM-CODE"><span class="toc-number">1.1.1.</span> <span class="toc-text">3 AM CODE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WORRY-CODE"><span class="toc-number">1.1.2.</span> <span class="toc-text">WORRY CODE</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Flow-Zone"><span class="toc-number">1.2.</span> <span class="toc-text">The Flow Zone</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MUSIC"><span class="toc-number">1.2.1.</span> <span class="toc-text">MUSIC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#INTERRUPTIONS"><span class="toc-number">1.2.2.</span> <span class="toc-text">INTERRUPTIONS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Writer’s-Block"><span class="toc-number">1.3.</span> <span class="toc-text">Writer’s Block</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CREATIVE-INPUT"><span class="toc-number">1.3.1.</span> <span class="toc-text">CREATIVE INPUT</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Debugging"><span class="toc-number">1.4.</span> <span class="toc-text">Debugging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pacing-Yourself"><span class="toc-number">1.5.</span> <span class="toc-text">Pacing Yourself</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Being-Late"><span class="toc-number">1.6.</span> <span class="toc-text">Being Late</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Help"><span class="toc-number">2.</span> <span class="toc-text">Help</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h2><blockquote>
+<p>Coding is an intellectually challenging and exhausting activity.</p>
+</blockquote>
+<h3 id="Preparedness"><a href="#Preparedness" class="headerlink" title="Preparedness"></a>Preparedness</h3><ol>
+<li>First, your code must work.</li>
+<li>Your code must solve the problem set for you by the customer. <blockquote>
+<p>Often the customer’s requirements do not actually solve the customer’s problems. It is up to you to see this and negotiate with the customer to ensure that the customer’s true needs are met. </p>
+</blockquote>
+</li>
+<li>Your code must fit well into the existing system.</li>
+<li>Your code must be readable by other programmers.</li>
+</ol>
+<h4 id="3-AM-CODE"><a href="#3-AM-CODE" class="headerlink" title="3 AM CODE"></a>3 AM CODE</h4><blockquote>
+<p>Don’t write code when you are tired.</p>
+</blockquote>
+<h4 id="WORRY-CODE"><a href="#WORRY-CODE" class="headerlink" title="WORRY CODE"></a>WORRY CODE</h4><ul>
+<li>Professional developers allocate their personal time in order to ensure that the time spent at the office is as productive as possible.</li>
+<li>If you find yourself at the office and the background anxieties are sapping your productivity, then it is better to spend an hour quieting them than to use brute force to write code that you’ll just have to throw away later (or worse, live with).</li>
+</ul>
+<h3 id="The-Flow-Zone"><a href="#The-Flow-Zone" class="headerlink" title="The Flow Zone"></a>The Flow Zone</h3><p>The hyper-productive state, which is called “the Flow” or “the Zone”, is the highly focused, tunnel-vision state of consciousness that programmers can get into while they write code.</p>
+<h4 id="MUSIC"><a href="#MUSIC" class="headerlink" title="MUSIC"></a>MUSIC</h4><p>Personal Comment: Not everyone works effeciently while listening music. At least, music doesnot work for me to focus or cool down.</p>
+<h4 id="INTERRUPTIONS"><a href="#INTERRUPTIONS" class="headerlink" title="INTERRUPTIONS"></a>INTERRUPTIONS</h4><ul>
+<li>Pairing can be very helpful as a way to deal with interruptions.</li>
+<li>TDD (Test Driven Development) is another big help.</li>
+</ul>
+<blockquote>
+<p>There will be interruptions that distract you and cause you to lose time. When they happen, remember that next time you may be the one who needs to interrupt someone else. So the professional attitude is a polite willingness to be helpful.</p>
+</blockquote>
+<p><strong>Personal Note</strong>: Any methods to deal with interruption is finding a way to store the context before interruption and switch back to the context after dealing with interruption. Men tends to think or behavior like CPUs?</p>
+<h3 id="Writer’s-Block"><a href="#Writer’s-Block" class="headerlink" title="Writer’s Block"></a>Writer’s Block</h3><p>You sit at your workstation and nothing happens.<br>The solution: Find a pair partner.</p>
+<p><strong>Personal Note</strong>: How to make sure you will not invade his/her flow zone?</p>
+<h4 id="CREATIVE-INPUT"><a href="#CREATIVE-INPUT" class="headerlink" title="CREATIVE INPUT"></a>CREATIVE INPUT</h4><blockquote>
+<p>Creativity breeds creativity</p>
+</blockquote>
+<p><strong>Personal Note</strong>: To find some activities to recover your momentum. Such activites may only work for you!</p>
+<h3 id="Debugging"><a href="#Debugging" class="headerlink" title="Debugging"></a>Debugging</h3><blockquote>
+<p>Debugging time is just as expensive to the business as coding time is, and therefore anything we can do to avoid or diminish it is good.<br>Whether you adopt TDD or some other discipline of equal efficacy, it is incumbent upon you as a professional to reduce your debugging time as close to zero as you can get.</p>
+</blockquote>
+<h3 id="Pacing-Yourself"><a href="#Pacing-Yourself" class="headerlink" title="Pacing Yourself"></a>Pacing Yourself</h3><blockquote>
+<p>Software development is a marathon, not a sprint. You can’t win the race by trying to run as fast as you can from the outset. You win by conserving your resources and pacing yourself. A marathon runner takes care of her body both before and during the race. Professional programmers conserve their energy and creativity with the same care.</p>
+</blockquote>
+<h3 id="Being-Late"><a href="#Being-Late" class="headerlink" title="Being Late"></a>Being Late</h3><blockquote>
+<p>Regularly measure your progress against your goal, and come up with three fact-based end dates: <strong>best case, nominal case, and worst case</strong>. Be as honest as you can about all three dates.<br><strong>Do not incorporate hope into your estimates</strong>!<br>Present all three numbers to your team and stakeholders. Update these numbers daily.</p>
+</blockquote>
+<h2 id="Help"><a href="#Help" class="headerlink" title="Help"></a>Help</h2><blockquote>
+<p>Programming is hard. The younger you are the less you believe this. After all, it’s just a bunch of if and while statements. But as you gain experience you begin to realize that the way you combine those if and while statements is critically important.</p>
+</blockquote>
+<p><strong>Personal Node</strong>: I cannot agree any more! Especially, the program you are maintaining is critical.</p>
+<ul>
+<li>HELPING OTHERS<blockquote>
+<p>It is a violation of professional ethics to sequester yourself in a cubicle or office and refuse the queries of others.</p>
+</blockquote>
+</li>
+<li>BEING HELPED<blockquote>
+<p>Do not protect your turf!<br>The reality is that programmers do not tend to be collaborators, hence we require <strong>disciplines</strong> that drive us to collaborate.</p>
+</blockquote>
+</li>
+<li>MENTORING<blockquote>
+<p>It is a matter of professional ethics for senior programmers to spend time taking younger programmers under their wing and mentoring them.</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/blog/categories/IT/">IT</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/blog/tags/IT/">IT</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://frozondragon.github.io/blog/blog/2016/04/15/The-Clean-Coder-Chapter-04/" data-title="[The Clean Coder] - Chapter 04 | Frozen Dragon" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/blog/2016/04/15/IELTS-Writing-Task-2-Samples/" title="IELTS - Writing Task 2 - Samples ">
+  <strong>上一篇：</strong><br/>
+  <span>
+  IELTS - Writing Task 2 - Samples </span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/blog/2016/04/14/IELTS-Writing-Vocabulary-for-Grade-7/"  title="IELTS - Writing Vocabulary for Grade 7">
+ <strong>下一篇：</strong><br/> 
+ <span>IELTS - Writing Vocabulary for Grade 7
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Coding"><span class="toc-number">1.</span> <span class="toc-text">Coding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Preparedness"><span class="toc-number">1.1.</span> <span class="toc-text">Preparedness</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-AM-CODE"><span class="toc-number">1.1.1.</span> <span class="toc-text">3 AM CODE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WORRY-CODE"><span class="toc-number">1.1.2.</span> <span class="toc-text">WORRY CODE</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Flow-Zone"><span class="toc-number">1.2.</span> <span class="toc-text">The Flow Zone</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MUSIC"><span class="toc-number">1.2.1.</span> <span class="toc-text">MUSIC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#INTERRUPTIONS"><span class="toc-number">1.2.2.</span> <span class="toc-text">INTERRUPTIONS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Writer’s-Block"><span class="toc-number">1.3.</span> <span class="toc-text">Writer’s Block</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CREATIVE-INPUT"><span class="toc-number">1.3.1.</span> <span class="toc-text">CREATIVE INPUT</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Debugging"><span class="toc-number">1.4.</span> <span class="toc-text">Debugging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pacing-Yourself"><span class="toc-number">1.5.</span> <span class="toc-text">Pacing Yourself</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Being-Late"><span class="toc-number">1.6.</span> <span class="toc-text">Being Late</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Help"><span class="toc-number">2.</span> <span class="toc-text">Help</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/blog/categories/IELTS/" title="IELTS">IELTS<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/blog/categories/IT/" title="IT">IT<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/blog/categories/Linux/" title="Linux">Linux<sup>6</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/blog/tags/IELTS/" title="IELTS">IELTS<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/blog/tags/Linux/" title="Linux">Linux<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/blog/tags/IT/" title="IT">IT<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/blog/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/blog/about" target="_blank" title="Rongbin Lin">Rongbin Lin</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/blog/js/jquery-2.0.3.min.js"></script>
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/blog/img/scrollup.png"/></a>
+	</div>
+	<script src="/blog/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
