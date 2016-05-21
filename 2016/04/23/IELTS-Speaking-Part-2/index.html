@@ -4,38 +4,56 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Setup CentOS in VirtualBox | Frozen Dragon</title>
+    <title>IELTS Speaking Part 2 | Frozen Dragon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Rongbin Lin">
     
 
     
-    <meta name="description" content="Setup CentOS7 in VirtualBoxInstall VirtualBoxSomething tips…
-Change Default VM location
-Load DVD Image (.iso) file
-Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no network">
+    <meta name="description" content="注意事项：卡片题必须注意时态，对于过去的内容一定要用过去使。卡片题名词的复数和谓语动词的单数很容易忘记加-s。如果是描述a person的题，要确定he 或者 she。记录ideeas和key words 时一定要写清晰，写大字
+链接Art and Architecturehttp://art.eserver.org/
+Part 2 Topics
+
+
+Buildings
+Cities
+
+
+
+
+Lo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Setup CentOS in VirtualBox">
-<meta property="og:url" content="http://frozondragon.github.io/blog/2016/04/09/Setup-CentOS-in-VirtualBox/index.html">
+<meta property="og:title" content="IELTS Speaking Part 2">
+<meta property="og:url" content="http://frozondragon.github.io/blog/2016/04/23/IELTS-Speaking-Part-2/index.html">
 <meta property="og:site_name" content="Frozen Dragon">
-<meta property="og:description" content="Setup CentOS7 in VirtualBoxInstall VirtualBoxSomething tips…
-Change Default VM location
-Load DVD Image (.iso) file
-Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no network">
-<meta property="og:image" content="http://i1070.photobucket.com/albums/u485/binglong621/VB_Change_Dir_zpsz5ydp98g.gif">
-<meta property="og:image" content="http://i1070.photobucket.com/albums/u485/binglong621/VB_Load_ISO_zpsn31izare.gif">
-<meta property="og:image" content="http://i1070.photobucket.com/albums/u485/binglong621/VB_Setup_Port_Forward_zpsvhiezetj.gif">
-<meta property="og:image" content="http://i1070.photobucket.com/albums/u485/binglong621/port_forward_zpsw6dtlepa.png">
-<meta property="og:image" content="http://i1070.photobucket.com/albums/u485/binglong621/putty_setting_zpsiewsnnpx.png">
-<meta property="og:updated_time" content="2016-04-09T13:48:15.948Z">
+<meta property="og:description" content="注意事项：卡片题必须注意时态，对于过去的内容一定要用过去使。卡片题名词的复数和谓语动词的单数很容易忘记加-s。如果是描述a person的题，要确定he 或者 she。记录ideeas和key words 时一定要写清晰，写大字
+链接Art and Architecturehttp://art.eserver.org/
+Part 2 Topics
+
+
+Buildings
+Cities
+
+
+
+
+Lo">
+<meta property="og:updated_time" content="2016-04-23T15:52:36.976Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Setup CentOS in VirtualBox">
-<meta name="twitter:description" content="Setup CentOS7 in VirtualBoxInstall VirtualBoxSomething tips…
-Change Default VM location
-Load DVD Image (.iso) file
-Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no network">
-<meta name="twitter:image" content="http://i1070.photobucket.com/albums/u485/binglong621/VB_Change_Dir_zpsz5ydp98g.gif">
+<meta name="twitter:title" content="IELTS Speaking Part 2">
+<meta name="twitter:description" content="注意事项：卡片题必须注意时态，对于过去的内容一定要用过去使。卡片题名词的复数和谓语动词的单数很容易忘记加-s。如果是描述a person的题，要确定he 或者 she。记录ideeas和key words 时一定要写清晰，写大字
+链接Art and Architecturehttp://art.eserver.org/
+Part 2 Topics
+
+
+Buildings
+Cities
+
+
+
+
+Lo">
 
     
     <link rel="alternative" href="/atom.xml" title="Frozen Dragon" type="application/atom+xml">
@@ -95,14 +113,14 @@ Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no ne
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/blog/2016/04/09/Setup-CentOS-in-VirtualBox/" title="Setup CentOS in VirtualBox" itemprop="url">Setup CentOS in VirtualBox</a>
+      <a href="/blog/2016/04/23/IELTS-Speaking-Part-2/" title="IELTS Speaking Part 2" itemprop="url">IELTS Speaking Part 2</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/blog/about" title="Rongbin Lin" target="_blank" itemprop="author">Rongbin Lin</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-08T16:46:56.000Z" itemprop="datePublished"> Published 2016-04-09</time>
+    <time datetime="2016-04-23T06:17:21.000Z" itemprop="datePublished"> Published 2016-04-23</time>
     
   </p>
 </header>
@@ -111,15 +129,53 @@ Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no ne
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Setup-CentOS7-in-VirtualBox"><span class="toc-number">1.</span> <span class="toc-text">Setup CentOS7 in VirtualBox</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-VirtualBox"><span class="toc-number">1.1.</span> <span class="toc-text">Install VirtualBox</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-Default-VM-location"><span class="toc-number">1.1.1.</span> <span class="toc-text">Change Default VM location</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Load-DVD-Image-iso-file"><span class="toc-number">1.1.2.</span> <span class="toc-text">Load DVD Image (.iso) file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Network"><span class="toc-number">1.1.3.</span> <span class="toc-text">Setup Network</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Putty"><span class="toc-number">1.1.4.</span> <span class="toc-text">Setup Putty</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Part-2-Topics"><span class="toc-number">1.</span> <span class="toc-text">Part 2 Topics</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="Setup-CentOS7-in-VirtualBox"><a href="#Setup-CentOS7-in-VirtualBox" class="headerlink" title="Setup CentOS7 in VirtualBox"></a>Setup CentOS7 in VirtualBox</h1><h2 id="Install-VirtualBox"><a href="#Install-VirtualBox" class="headerlink" title="Install VirtualBox"></a>Install VirtualBox</h2><p>Something tips…</p>
-<h3 id="Change-Default-VM-location"><a href="#Change-Default-VM-location" class="headerlink" title="Change Default VM location"></a>Change Default VM location</h3><p><img src="http://i1070.photobucket.com/albums/u485/binglong621/VB_Change_Dir_zpsz5ydp98g.gif" alt="ChangeVMLocation"></p>
-<h3 id="Load-DVD-Image-iso-file"><a href="#Load-DVD-Image-iso-file" class="headerlink" title="Load DVD Image (.iso) file"></a>Load DVD Image (.iso) file</h3><p><img src="http://i1070.photobucket.com/albums/u485/binglong621/VB_Load_ISO_zpsn31izare.gif" alt="ChangeVMLocation"></p>
-<h3 id="Setup-Network"><a href="#Setup-Network" class="headerlink" title="Setup Network"></a>Setup Network</h3><p>By default, after install CentOS7 in VirtualBox, it will have no network.<br>vi the setting file and change <strong>ONBOOT</strong> to yes<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# nmcli d</span><br><span class="line">DEVICE  TYPE      STATE      CONNECTION</span><br><span class="line">enp0s3  ethernet  disconnected  enp0s3</span><br><span class="line">lo      loopback  unmanaged  --</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# cd /etc/sysconfig/network-scripts</span><br><span class="line">[root@localhost ~]# vi ifcfg-enp0s3</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">BOOTPROTO=dhcp</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">PEERDNS=yes</span><br><span class="line">PEERROUTES=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_PEERDNS=yes</span><br><span class="line">IPV6_PEERROUTES=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">NAME=enp0s3</span><br><span class="line">UUID=33b389eb-aa5d-4e32-ad19-66c72c73f0a4</span><br><span class="line">DEVICE=enp0s3</span><br><span class="line">ONBOOT=yes</span><br><span class="line"></span><br><span class="line">[root@localhost network-scripts]# service network restart</span><br><span class="line">Restarting network (via systemctl):                        [  OK  ]</span><br><span class="line">[root@localhost network-scripts]# ping 0.0.0.0</span><br><span class="line">PING 0.0.0.0 (127.0.0.1) 56(84) bytes of data.</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.037 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.046 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.048 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.046 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=5 ttl=64 time=0.051 ms</span><br><span class="line">^C</span><br><span class="line">--- 0.0.0.0 ping statistics ---</span><br><span class="line">5 packets transmitted, 5 received, 0% packet loss, time 3999ms</span><br></pre></td></tr></table></figure></p>
-<h3 id="Setup-Putty"><a href="#Setup-Putty" class="headerlink" title="Setup Putty"></a>Setup Putty</h3><p>The reason we need putty to connect to vitual linux hosted in Virtualbox is that we cannot copy and paste between host and client.<br><img src="http://i1070.photobucket.com/albums/u485/binglong621/VB_Setup_Port_Forward_zpsvhiezetj.gif" alt="PortForward"><br><img src="http://i1070.photobucket.com/albums/u485/binglong621/port_forward_zpsw6dtlepa.png" alt="PortForward_How"><br><img src="http://i1070.photobucket.com/albums/u485/binglong621/putty_setting_zpsiewsnnpx.png" alt="Setting of Putty"></p>
+		<p>注意事项：<br>卡片题必须注意时态，对于过去的内容一定要用过去使。<br>卡片题名词的复数和谓语动词的单数很容易忘记加-s。<br>如果是描述a person的题，要确定he 或者 she。<br>记录ideeas和key words 时一定要写清晰，写大字</p>
+<p>链接<br>Art and Architecture<br><a href="http://art.eserver.org/" target="_blank" rel="external">http://art.eserver.org/</a></p>
+<h3 id="Part-2-Topics"><a href="#Part-2-Topics" class="headerlink" title="Part 2 Topics"></a>Part 2 Topics</h3><table>
+<thead>
+<tr>
+<th>Buildings</th>
+<th>Cities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Location <br> History <br> People   <br> Exterior <br> Interior <br> Atmosphere <br> Service<br> My own feeling</td>
+<td>Location <br> History <br> People   <br> Food <br> Cityscape <br> Culture <br> My own feeling</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Describe a modern building.<blockquote>
+<p>When it comes to a modern building, the Marina Bay Sands pop into my mind. It is ship like stucture give me an incredable impression. I was astonished by its amzing outlook at the firs glance it. You can easily spot it far away due to its unique appeareance. It is like a gaint ship traveling on the sky.<br>The boat in the sky is actually a park, which is called SkyPark. On the platform, you can have a bird’s view of whole Singapore.<br>As I know, it is built as integreted resorts which means you can enjoy a wide variety of services within this single building. Inside it, there are many world-class chefs cooked for you. And you can aslo enjoy your <strong>luxurious</strong> lifes by gambling in its gorgeous casino.  Nodoubltly, as long as you are rich, this building can provide first class services to you. In my opinion, it already become a landmark of Singapore which I will introduce it to any friends or relatives who come to vist Singapore.</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>Dsscribe a hotel. </li>
+<li>Describe your favourite shop / store</li>
+<li>Describe a school / library you studies at before.</li>
+<li>Describe a building in your school / college/ university.</li>
+<li>Describe your Ideal house.</li>
+<li>Describe an old building</li>
+<li>Describe an old building.</li>
+<li>Describe how you spent the last weekend.</li>
+<li>Describe an imporatant building.</li>
+<li>Describe a historical building / place.</li>
+<li>Describe a quit place.</li>
+<li>Describe a place in your city that you know well.</li>
+<li>Describe an important city in China.</li>
+<li>Describe a city you would like to visit.</li>
+<li>Describe an interesting trip.</li>
+<li>Describe a three-day holiday.</li>
+<li>Deccribe a childhood experience.</li>
+<li>Describe a school holiday.</li>
+<li></li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -127,9 +183,14 @@ Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no ne
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/blog/categories/Linux/">Linux</a>
+  <a class="article-category-link" href="/blog/categories/IELTS/">IELTS</a>
 </div>
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/blog/tags/IELTS/">IELTS</a>
+  </div>
 
 </div>
 
@@ -137,7 +198,7 @@ Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no ne
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://frozondragon.github.io/blog/blog/2016/04/09/Setup-CentOS-in-VirtualBox/" data-title="Setup CentOS in VirtualBox | Frozen Dragon" data-tsina="null" class="share clearfix">
+	  <div data-url="http://frozondragon.github.io/blog/blog/2016/04/23/IELTS-Speaking-Part-2/" data-title="IELTS Speaking Part 2 | Frozen Dragon" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -151,18 +212,18 @@ Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no ne
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/blog/2016/04/09/LinuxBible-Basic/" title="[LinuxBible] - Basic">
+ <a href="/blog/2016/04/26/English-American-idiom/" title="English- American idiom">
   <strong>上一篇：</strong><br/>
   <span>
-  [LinuxBible] - Basic</span>
+  English- American idiom</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/blog/2016/04/07/hello-world/"  title="Hello World">
+<a href="/blog/2016/04/19/IELET-Speaking-English-Secrets-of-Grade-7/"  title="IELET Speaking English (Secrets of Grade 7)">
  <strong>下一篇：</strong><br/> 
- <span>Hello World
+ <span>IELET Speaking English (Secrets of Grade 7)
 </span>
 </a>
 </div>
@@ -177,7 +238,7 @@ Setup NetworkBy default, after install CentOS7 in VirtualBox, it will have no ne
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Setup-CentOS7-in-VirtualBox"><span class="toc-number">1.</span> <span class="toc-text">Setup CentOS7 in VirtualBox</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-VirtualBox"><span class="toc-number">1.1.</span> <span class="toc-text">Install VirtualBox</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-Default-VM-location"><span class="toc-number">1.1.1.</span> <span class="toc-text">Change Default VM location</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Load-DVD-Image-iso-file"><span class="toc-number">1.1.2.</span> <span class="toc-text">Load DVD Image (.iso) file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Network"><span class="toc-number">1.1.3.</span> <span class="toc-text">Setup Network</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Putty"><span class="toc-number">1.1.4.</span> <span class="toc-text">Setup Putty</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Part-2-Topics"><span class="toc-number">1.</span> <span class="toc-text">Part 2 Topics</span></a></li></ol>
  
   </div>
 
