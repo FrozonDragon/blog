@@ -50,7 +50,7 @@
 				<h1 class="site-name"><a href="/blog/" title="Frozen Dragon">Frozen Dragon</a></h1>
 				<h2 class="blog-motto">Overwhelming by knowledge...</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -66,7 +66,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:frozondragon.github.io/blog">
 					</form>
 					
@@ -89,14 +89,14 @@
 		<a href="/blog/about" title="Rongbin Lin" target="_blank" itemprop="author">Rongbin Lin</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-12T15:05:46.000Z" itemprop="datePublished"> Published 2016-04-12</time>
+    <time datetime="2016-04-12T15:05:46.000Z" itemprop="datePublished"> 發表於 2016-04-12</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目錄</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Practical-Linux-Topics-systemd"><span class="toc-number">1.</span> <span class="toc-text">[Practical Linux Topics] systemd</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-systemd"><span class="toc-number">1.1.</span> <span class="toc-text">What is systemd?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Units-amp-Targets"><span class="toc-number">1.2.</span> <span class="toc-text">Units & Targets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#并发启动原理之一：解决-socket-依赖"><span class="toc-number">1.2.1.</span> <span class="toc-text">并发启动原理之一：解决 socket 依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#并发启动原理之二：解决-D-Bus-依赖"><span class="toc-number">1.2.2.</span> <span class="toc-text">并发启动原理之二：解决 D-Bus 依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#并发启动原理之三：解决文件系统依赖"><span class="toc-number">1.2.3.</span> <span class="toc-text">并发启动原理之三：解决文件系统依赖</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map-Run-Level-with-Systemd-Targets"><span class="toc-number">1.3.</span> <span class="toc-text">Map Run Level with Systemd Targets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-Check-current-runlevel"><span class="toc-number">1.3.1.</span> <span class="toc-text">Practice: Check current runlevel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-Check-current-runlevel-1"><span class="toc-number">1.3.2.</span> <span class="toc-text">Practice: Check current runlevel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-Check-status-of-service"><span class="toc-number">1.3.3.</span> <span class="toc-text">Practice: Check status of service</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Explore-the-Analysis-Tool"><span class="toc-number">1.4.</span> <span class="toc-text">Explore the Analysis Tool</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-Check-the-time-used-to-finish-startup"><span class="toc-number">1.4.1.</span> <span class="toc-text">Practice : Check the time used to finish startup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-List-ervices-that-are-slowing-down-your-power-up-times"><span class="toc-number">1.4.2.</span> <span class="toc-text">Practice : List ervices that are slowing down your power-up times</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Display-systemd-units-during-bootup"><span class="toc-number">1.4.3.</span> <span class="toc-text">Display systemd units during bootup</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Power-Options"><span class="toc-number">1.5.</span> <span class="toc-text">Power Options</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Checking-the-Logs"><span class="toc-number">1.6.</span> <span class="toc-text">Checking the Logs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-several-commands-to-check-last-bootup"><span class="toc-number">1.6.1.</span> <span class="toc-text">Practice: several commands to check last bootup</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Systemd-vs-SysVinit"><span class="toc-number">2.</span> <span class="toc-text">Systemd vs SysVinit</span></a></li></ol>
 		
@@ -267,17 +267,17 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目錄</strong>
  
  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Practical-Linux-Topics-systemd"><span class="toc-number">1.</span> <span class="toc-text">[Practical Linux Topics] systemd</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-systemd"><span class="toc-number">1.1.</span> <span class="toc-text">What is systemd?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Units-amp-Targets"><span class="toc-number">1.2.</span> <span class="toc-text">Units & Targets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#并发启动原理之一：解决-socket-依赖"><span class="toc-number">1.2.1.</span> <span class="toc-text">并发启动原理之一：解决 socket 依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#并发启动原理之二：解决-D-Bus-依赖"><span class="toc-number">1.2.2.</span> <span class="toc-text">并发启动原理之二：解决 D-Bus 依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#并发启动原理之三：解决文件系统依赖"><span class="toc-number">1.2.3.</span> <span class="toc-text">并发启动原理之三：解决文件系统依赖</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map-Run-Level-with-Systemd-Targets"><span class="toc-number">1.3.</span> <span class="toc-text">Map Run Level with Systemd Targets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-Check-current-runlevel"><span class="toc-number">1.3.1.</span> <span class="toc-text">Practice: Check current runlevel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-Check-current-runlevel-1"><span class="toc-number">1.3.2.</span> <span class="toc-text">Practice: Check current runlevel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-Check-status-of-service"><span class="toc-number">1.3.3.</span> <span class="toc-text">Practice: Check status of service</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Explore-the-Analysis-Tool"><span class="toc-number">1.4.</span> <span class="toc-text">Explore the Analysis Tool</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-Check-the-time-used-to-finish-startup"><span class="toc-number">1.4.1.</span> <span class="toc-text">Practice : Check the time used to finish startup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-List-ervices-that-are-slowing-down-your-power-up-times"><span class="toc-number">1.4.2.</span> <span class="toc-text">Practice : List ervices that are slowing down your power-up times</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Display-systemd-units-during-bootup"><span class="toc-number">1.4.3.</span> <span class="toc-text">Display systemd units during bootup</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Power-Options"><span class="toc-number">1.5.</span> <span class="toc-text">Power Options</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Checking-the-Logs"><span class="toc-number">1.6.</span> <span class="toc-text">Checking the Logs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice-several-commands-to-check-last-bootup"><span class="toc-number">1.6.1.</span> <span class="toc-text">Practice: several commands to check last bootup</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Systemd-vs-SysVinit"><span class="toc-number">2.</span> <span class="toc-text">Systemd vs SysVinit</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 
   
@@ -285,7 +285,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分類</p>
 		<ul>
 		
 		  
@@ -306,7 +306,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">標簽</p>
 		<ul class="clearfix">
 		
 			
@@ -334,7 +334,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情鏈接</p>
     <ul>
         
           <li>
@@ -356,11 +356,11 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
+  <p class="asidetitle">新浪微博</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
@@ -577,7 +577,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/blog/img/scrollup.png"/></a>
+	<a title="返回頂部"><img src="/blog/img/scrollup.png"/></a>
 	</div>
 	<script src="/blog/js/totop.js"></script>
 
